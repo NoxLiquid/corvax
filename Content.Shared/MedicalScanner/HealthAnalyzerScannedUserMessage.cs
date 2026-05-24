@@ -28,10 +28,12 @@ public struct HealthAnalyzerUiState
     public bool? ScanMode;
     public bool? Bleeding;
     public bool? Unrevivable;
+    public float? CureProgress; // _Modifications-Disease
 
     public HealthAnalyzerUiState() {}
 
-    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable)
+    public HealthAnalyzerUiState(NetEntity? targetEntity, float temperature, float bloodLevel, bool? scanMode, bool? bleeding, bool? unrevivable,
+    float? cureProgress = null) // _Modifications-Disease
     {
         TargetEntity = targetEntity;
         Temperature = temperature;
@@ -39,5 +41,6 @@ public struct HealthAnalyzerUiState
         ScanMode = scanMode;
         Bleeding = bleeding;
         Unrevivable = unrevivable;
+        CureProgress = cureProgress; // _Modifications-Disease
     }
 }
