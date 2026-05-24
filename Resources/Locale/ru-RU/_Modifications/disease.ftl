@@ -323,5 +323,9 @@ health-analyzer-window-entity-infected-text =
     Заражён вирусом.
     Состояние излечения организма: { $progress }%
 
+# Должность
+job-name-virologist = вирусолог
+job-description-virologist = Изучайте вирусы, разрабатывайте вакцины и защищайте станцию от эпидемий.
+
 # Песочница
 sandbox-window-toggle-disease-button = Отображение заболеваний

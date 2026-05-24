@@ -1,8 +1,7 @@
 - type: entity
   name: чаша петри
-  parent: 
-  - BaseStructureDynamic
-  - BaseMob
+  parent:
+  - BaseStructure
   - MobAtmosStandard
   id: PetriDash
   components:

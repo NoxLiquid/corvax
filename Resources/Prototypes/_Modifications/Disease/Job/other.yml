@@ -1,6 +1,24 @@
 - type: playTimeTracker
   id: JobVirologist
 
+- type: job
+  id: Virologist
+  name: job-name-virologist
+  playTimeTracker: JobVirologist
+  startingGear: VirologistGear
+  icon: "JobIconVirologist"
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Virology
+  - Maintenance
+
+- type: startingGear
+  id: VirologistGear
+  equipment:
+    id: VirologistPDA
+    ears: ClothingHeadsetMedical
+
 - type: entity
   parent: IDCardStandard
   id: IDCardVirologist
