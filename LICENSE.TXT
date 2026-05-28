@@ -20,3 +20,48 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+--- EXCEPTION ---
+
+The above MIT License does NOT apply to the following directories
+and their contents (the "_Modifications" namespace):
+
+  Content.Server/_Modifications/
+  Content.Client/_Modifications/
+  Content.Shared/_Modifications/
+  Resources/Prototypes/_Modifications/
+  Resources/Locale/*/_Modifications/
+  Resources/Audio/_Modifications/
+  Resources/Textures/_Modifications/
+  Resources/Maps/_Modifications/
+
+Copyright (c) 2026 KloopRe (Nox). All rights reserved.
+
+These files are proprietary. Use in production, modification,
+distribution, or transfer without explicit written permission
+from the author is strictly prohibited.
+
+Copyright (c) 2026 KloopRe (Nox). All rights reserved.
+
+PROPRIETARY LICENSE
+
+This source code and all associated files within the _Modifications namespace
+(including but not limited to Content.Server/_Modifications,
+Content.Client/_Modifications, Content.Shared/_Modifications,
+and Resources/Prototypes/_Modifications, Resources/Locale/*/_Modifications)
+are the exclusive intellectual property of the author.
+
+The following actions are strictly prohibited without prior explicit
+written permission from the author:
+
+1. Use of this code in a production environment;
+2. Modification, adaptation, or creation of derivative works;
+3. Distribution, transfer, or sublicensing to third parties;
+4. Publication or public disclosure of the source code.
+
+This code is provided solely for review and educational purposes.
+Any unauthorized use constitutes a violation of the author's rights
+and may result in legal liability.
+
+For licensing inquiries, contact telegram: @kjxjjddjjddj
+
