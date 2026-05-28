@@ -3,32 +3,37 @@
 
 using System.Linq;
 using Content.Server._Modifications.Disease.Systems;
-using Content.Shared.Body.Components;
 using Content.Shared._Modifications.Disease.Components;
 using Content.Shared._Modifications.Disease.Effects;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.EntityEffects;
 
 namespace Content.Server._Modifications.Disease.Effects;
 
-/// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
-public sealed partial class CauseDiseaseEntityEffectsSystem : EntityEffectSystem<BloodstreamComponent, CauseDiseaseEffect>
+public sealed partial class CauseDiseaseEntityEffectsSystem : EntityEffectSystem<SolutionManagerComponent, CauseDiseaseEffect>
 {
-    [Dependency] private readonly DiseaseSystem _diseaseSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    protected override void Effect(Entity<BloodstreamComponent> entity, ref EntityEffectEvent<CauseDiseaseEffect> args)
-    {
-        DiseaseData? data = null;
+    [Dependency] private DiseaseSystem _diseaseSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
-        var container = new Entity<SolutionContainerManagerComponent?>(entity.Owner, null);
-        if (!_solutionContainer.ResolveSolution(container, entity.Comp.BloodSolutionName, ref entity.Comp.BloodSolution, out var bloodSolution)
-            || bloodSolution == null)
+    protected override void Effect(Entity<SolutionManagerComponent> entity, ref EntityEffectEvent<CauseDiseaseEffect> args)
+    {
+        var container = new Entity<SolutionManagerComponent?>(entity.Owner, entity.Comp);
+
+        Entity<SolutionComponent>? solutionEntity = null;
+        if (!_solutionContainer.ResolveSolution(container, args.Effect.Solution, ref solutionEntity, out var solution)
+            || solution == null)
         {
             return;
         }
 
-        foreach (var (reagentId, _) in bloodSolution.Contents)
+        TryInfectFromSolution(entity.Owner, solution);
+    }
+
+    private bool TryInfectFromSolution(EntityUid target, Solution solution)
+    {
+        foreach (var (reagentId, _) in solution.Contents)
         {
             var dataList = reagentId.Data;
 
@@ -39,21 +44,13 @@ public sealed partial class CauseDiseaseEntityEffectsSystem : EntityEffectSystem
             if (candidate == null)
                 continue;
 
-            data = candidate;
-            break;
+            var infectionData = (DiseaseData)candidate.CloneForInfection();
+            var infectivity = _diseaseSystem.CalcInfectionInfectivity(infectionData);
+
+            _diseaseSystem.ProbInfect(candidate, target, infectivity: infectivity, ignoreResistance: true);
+            return true;
         }
 
-        if (data == null)
-            return;
-
-        if (!_diseaseSystem.CanInfect(entity.Owner, data))
-            return;
-
-        var infectionData = (DiseaseData)data.CloneForInfection();
-        var infectivity = _diseaseSystem.CalcInfectionInfectivity(infectionData);
-
-        // вот не понятно, может же быть реактивный реагент, тогда резисты нужно учитывать? Если понадобится реактивный,
-        // тогда добавьте флаг
-        _diseaseSystem.ProbInfect(data, entity.Owner, infectivity: infectivity, ignoreResistance: true);
+        return false;
     }
 }

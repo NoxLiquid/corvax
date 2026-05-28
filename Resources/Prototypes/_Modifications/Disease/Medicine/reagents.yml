@@ -15,6 +15,14 @@
             - !type:ReagentCondition
               reagent: DiseaseSolution
               min: 5
+    Petri:
+      effects:
+        - !type:CauseDiseaseEffect
+          solution: petri
+          conditions:
+            - !type:ReagentCondition
+              reagent: DiseaseSolution
+              min: 0.1
 
 - type: reagent
   id: Infectizine

@@ -1,3 +1,17 @@
+- type: metabolismStage
+  id: Petri
+  name: metabolism-stage-petri
+
+- type: entity
+  parent: SolutionSmall
+  id: SolutionPetri
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: petri
+    solution:
+      maxVol: 10
+
 - type: entity
   name: чаша петри
   parent:
@@ -7,18 +21,18 @@
   components:
   - type: Transform
     anchored: true
-  - type: SolutionContainerManager
+  - type: SolutionManager
+    solutions:
+    - SolutionPetri
   - type: InjectableSolution
-    solution: bloodstream
-  - type: Bloodstream
-    bloodlossThreshold: 0
-    bleedAmount: 0
-    bloodlossDamage:
-      types:
-        Bloodloss: 0.5
-    bloodlossHealDamage:
-      types:
-        Bloodloss: -1
+    solution: petri
+  - type: Metabolizer
+    solutionOnBody: false
+    stages: [ Petri ]
+    solutions:
+      Petri:
+        solutionName: petri
+        solutionOnBody: false
   - type: Pullable
   - type: Muted
   - type: Physics

@@ -11,6 +11,10 @@ public sealed partial class CauseDiseaseEffect : EntityEffectBase<CauseDiseaseEf
 {
     [DataField]
     public DiseaseData Data = new();
+
+    [DataField]
+    public string Solution = "bloodstream";
+
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-cause-disease");
 }

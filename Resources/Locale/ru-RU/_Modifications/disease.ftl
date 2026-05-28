@@ -324,8 +324,10 @@ health-analyzer-window-entity-infected-text =
     Состояние излечения организма: { $progress }%
 
 # Должность
-job-name-virologist = вирусолог
 job-description-virologist = Изучайте вирусы, разрабатывайте вакцины и защищайте станцию от эпидемий.
+
+# Метаболизм
+metabolism-stage-petri = Чаша Петри
 
 # Песочница
 sandbox-window-toggle-disease-button = Отображение заболеваний

@@ -35,13 +35,13 @@ public sealed partial class EnsureDiseaseIntoSolutionSystem : EntitySystem
 
         ent.Comp.ReagentAdded = true;
 
-        if (!TryComp<SolutionContainerManagerComponent>(ent.Owner, out var solutionContainerManager))
+        if (!TryComp<SolutionManagerComponent>(ent.Owner, out var solutionManager))
             return;
 
         if (!TryComp<DrawableSolutionComponent>(ent.Owner, out var drawable))
             return;
 
-        var entWrapper = new Entity<DrawableSolutionComponent?, SolutionContainerManagerComponent?>(ent.Owner, drawable, solutionContainerManager);
+        var entWrapper = new Entity<DrawableSolutionComponent?, SolutionManagerComponent?>(ent.Owner, drawable, solutionManager);
 
         if (!_solutionContainer.TryGetDrawableSolution(entWrapper, out Entity<SolutionComponent>? solutionEntity, out Solution? solution))
             return;

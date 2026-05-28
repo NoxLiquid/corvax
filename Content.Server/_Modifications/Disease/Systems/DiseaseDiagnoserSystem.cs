@@ -367,13 +367,13 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
 
         foreach (var flask in ents)
         {
-            if (!TryComp<SolutionContainerManagerComponent>(flask, out var solutionContainerManager))
+            if (!TryComp<SolutionManagerComponent>(flask, out var solutionManager))
                 continue;
 
             if (!TryComp<DrawableSolutionComponent>(flask, out var injectable))
                 continue;
 
-            var entWrapper = new Entity<DrawableSolutionComponent?, SolutionContainerManagerComponent?>(flask, injectable, solutionContainerManager);
+            var entWrapper = new Entity<DrawableSolutionComponent?, SolutionManagerComponent?>(flask, injectable, solutionManager);
 
             if (!_solutionContainer.TryGetDrawableSolution(entWrapper, out Entity<SolutionComponent>? solutionEntity, out Solution? solution))
                 continue;

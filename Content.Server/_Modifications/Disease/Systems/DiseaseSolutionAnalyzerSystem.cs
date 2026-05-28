@@ -209,13 +209,13 @@ public sealed class DiseaseSolutionAnalyzerSystem : EntitySystem
         if (slot.ContainedEntity is not { } contained)
             return false;
 
-        if (!TryComp<SolutionContainerManagerComponent>(contained, out var solutionManager))
+        if (!TryComp<SolutionManagerComponent>(contained, out var solutionManager))
             return false;
 
         if (!TryComp<DrawableSolutionComponent>(contained, out var drawable))
             return false;
 
-        var wrapper = new Entity<DrawableSolutionComponent?, SolutionContainerManagerComponent?>(
+        var wrapper = new Entity<DrawableSolutionComponent?, SolutionManagerComponent?>(
             contained,
             drawable,
             solutionManager);
