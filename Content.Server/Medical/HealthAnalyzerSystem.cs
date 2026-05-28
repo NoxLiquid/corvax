@@ -19,7 +19,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Content.Server.Body.Systems;
-using Content.Shared._Modifications.Disease.Components;
 
 namespace Content.Server.Medical;
 
@@ -249,27 +248,13 @@ public sealed partial class HealthAnalyzerSystem : EntitySystem
         if (TryComp<UnrevivableComponent>(entity, out var unrevivableComp) && unrevivableComp.Analyzable)
             unrevivable = true;
 
-        // _Modifications-Disease-Start
-        float? cureProgress = null;
-
-        if (TryComp<DiseaseComponent>(target, out var virus))
-        {
-            var progress = virus.Data.MaxThreshold > 0f
-                ? virus.Data.Threshold / virus.Data.MaxThreshold
-                : 0f;
-
-            cureProgress = 1f - progress;
-        }
-        // _Modifications-Disease-End
-
         return new HealthAnalyzerUiState(
             GetNetEntity(entity),
             bodyTemperature,
             bloodAmount,
             null,
             bleeding,
-            unrevivable,
-            cureProgress // _Modifications-Disease
+            unrevivable
         );
     }
 }

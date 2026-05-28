@@ -1,4 +1,4 @@
-// Developed by Nox for the Sunrise Station project.
+// Developed by Nox project.
 // Author: KloopRe
 
 namespace Content.Server._Modifications.Disease;

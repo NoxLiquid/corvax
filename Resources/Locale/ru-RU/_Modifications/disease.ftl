@@ -329,5 +329,13 @@ job-description-virologist = Изучайте вирусы, разрабатыв
 # Метаболизм
 metabolism-stage-petri = Чаша Петри
 
+# Анализатор вирусов
+disease-analyzer-popup-scan-target = { $user } сканирует вас анализатором вирусов.
+disease-analyzer-not-infected = Пациент не заражён.
+disease-analyzer-infected = [color=red]Пациент заражён![/color]
+disease-analyzer-strain = Штамм: { $id }
+disease-analyzer-cure-progress = Состояние излечения: { $progress }%
+disease-analyzer-symptom-count = Активных симптомов: { $count }
+
 # Песочница
 sandbox-window-toggle-disease-button = Отображение заболеваний
