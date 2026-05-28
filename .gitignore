@@ -317,3 +317,7 @@ Resources/MapImages
 
 # Direnv stuff
 .direnv/
+
+# Claude Code
+.claude/
+CLAUDE.md
