@@ -847,8 +847,6 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
                     continue;
                 }
 
-                _sawmill.Info($"[Disease] REGISTER {type.Name} => {protoId} ({asm.GetName().Name})");
-
                 _symptomFactories.Register(protoId, type);
                 count++;
             }

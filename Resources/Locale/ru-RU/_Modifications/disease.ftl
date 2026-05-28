@@ -332,10 +332,18 @@ metabolism-stage-petri = Чаша Петри
 # Анализатор вирусов
 disease-analyzer-popup-scan-target = { $user } сканирует вас анализатором вирусов.
 disease-analyzer-not-infected = Пациент не заражён.
-disease-analyzer-infected = [color=red]Пациент заражён![/color]
+disease-analyzer-infected = Пациент заражён!
 disease-analyzer-strain = Штамм: { $id }
 disease-analyzer-cure-progress = Состояние излечения: { $progress }%
 disease-analyzer-symptom-count = Активных симптомов: { $count }
 
 # Песочница
 sandbox-window-toggle-disease-button = Отображение заболеваний
+
+# Гайдбук
+guide-entry-disease = Вирусология
+guide-entry-disease-equipment = Оборудование
+guide-entry-disease-infection = Заражение
+guide-entry-disease-treatment = Лечение
+guide-entry-disease-evolution = Эволюция
+guide-entry-disease-petri = Чаша Петри
