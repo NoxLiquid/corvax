@@ -4,12 +4,12 @@
 namespace Content.Server._Modifications.Disease.Components;
 
 /// <summary>
-///     Логика резистов зомби инфекции.
+///     Логика резистов инфекции.
 /// </summary>
 [RegisterComponent]
 public sealed partial class DiseaseResistanceComponent : Component
 {
-    [DataField]
+    [DataField("coef")]
     [ViewVariables(VVAccess.ReadOnly)]
     public float DiseaseResistanceCoefficient = 0.1f;
 

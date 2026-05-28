@@ -6,9 +6,9 @@ using Content.Shared._Modifications.Disease;
 namespace Content.Server._Modifications.Disease.Components;
 
 [RegisterComponent]
-public sealed partial class BedRegenerationComponent : Component
+public sealed partial class DiseaseHealingBedComponent : Component
 {
     [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
-    public BedRegenerationType RegenerationType = BedRegenerationType.Normal;
+    public DiseaseHealingBedType RegenerationType = DiseaseHealingBedType.Normal;
 }

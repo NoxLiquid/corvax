@@ -18,7 +18,7 @@ namespace Content.Shared._Modifications.Disease;
 ///     Тип кровати к которой прикреплена сущность.
 ///     Требуется для особой логики, если сущность прикреплена к кровати. 
 /// </summary>
-public enum BedRegenerationType
+public enum DiseaseHealingBedType
 {
     None = 0,      // Не влияет
     Normal,        // Обычная кровать
@@ -69,12 +69,12 @@ public struct BaseDiseaseSettings
     /// <summary>
     ///     Модификаторы ослабления вируса в зависимости от состояния.
     /// </summary>
-    public static readonly Dictionary<BedRegenerationType, float> DebuffDiseaseMultipliers =
+    public static readonly Dictionary<DiseaseHealingBedType, float> DebuffDiseaseMultipliers =
         new()
         {
-            { BedRegenerationType.None, 1.0f },
-            { BedRegenerationType.Normal, 0.5f },
-            { BedRegenerationType.Stasis, 0.1f },
+            { DiseaseHealingBedType.None, 1.0f },
+            { DiseaseHealingBedType.Normal, 0.5f },
+            { DiseaseHealingBedType.Stasis, 0.1f },
         };
 }
 

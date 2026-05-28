@@ -63,7 +63,7 @@ public sealed partial class DiseaseComponent : Component
 
     [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
-    public BedRegenerationType RegenerationType = BedRegenerationType.None;
+    public DiseaseHealingBedType RegenerationType = DiseaseHealingBedType.None;
 }
 
 
