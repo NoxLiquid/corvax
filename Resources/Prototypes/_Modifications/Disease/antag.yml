@@ -27,5 +27,4 @@
   name: roles-antag-sentient-disease-name
   antagonist: true
   setPreference: true
-  playTimeTracker: AntagSentientDisease
   objective: roles-antag-sentient-disease-objective

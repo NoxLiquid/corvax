@@ -26,7 +26,6 @@
     group: GenericNumber
   - type: Eye
     pvsScale: 1.5
-    drawLight: false
     drawFov: false
     visMask:
       - Normal
@@ -69,9 +68,6 @@
     - MindRoleSentientDisease
     raffle:
       settings: default
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 36000 # 10h overall
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]

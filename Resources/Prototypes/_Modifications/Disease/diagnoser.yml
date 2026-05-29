@@ -129,8 +129,9 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: DiseaseDiagnoserConsole
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
@@ -319,8 +320,9 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: DiseaseEvolutionConsole
   - type: ActivatableUIRequiresAccess
   - type: AccessReader

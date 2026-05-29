@@ -43,6 +43,7 @@
     sprite: _Modifications/Disease/petri_dish.rsi
     state: icon
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: MobState
     allowedStates:
