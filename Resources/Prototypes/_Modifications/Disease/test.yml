@@ -5,13 +5,11 @@
   suffix: DISEASE
   description: Маленькая пробирка.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: DiseaseSolution
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DiseaseSolution
+        Quantity: 30
   - type: Label
     currentLabel: disease-data-vial-label
   - type: EnsureDiseaseIntoSolution

@@ -81,13 +81,11 @@
   suffix: Антисептик
   name: распылитель
   components:
-  - type: SolutionContainerManager
-    solutions:
-      spray:
-        maxVol: 100
-        reagents:
-        - ReagentId: Antiseptic
-          Quantity: 100
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Antiseptic
+        Quantity: 100
   - type: Label
     currentLabel: антисептик
   - type: Tag
@@ -107,9 +105,8 @@
       - state: generictank-1
       - state: generictank-1-1
         map: ["enum.SolutionContainerLayers.Fill"]
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        reagents:
-        - ReagentId: Antiseptic
-          Quantity: 1500
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Antiseptic
+        Quantity: 1500

@@ -19,6 +19,13 @@
     id: VirologistPDA
     ears: ClothingHeadsetMedical
 
+- type: chameleonOutfit
+  id: VirologistChameleonOutfit
+  job: Virologist
+  equipment:
+    eyes: ClothingEyesHudMedical
+    mask: ClothingMaskSterile
+
 - type: entity
   parent: IDCardStandard
   id: IDCardVirologist

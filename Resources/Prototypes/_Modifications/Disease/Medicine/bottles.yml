@@ -5,13 +5,11 @@
   components:
   - type: Label
     currentLabel: reagent-name-infectizine
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Infectizine
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Infectizine
+        Quantity: 30
 
 - type: entity
   id: ChemistryBottleMycocline
@@ -20,13 +18,11 @@
   components:
   - type: Label
     currentLabel: reagent-name-mycocline
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Mycocline
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Mycocline
+        Quantity: 30
 
 - type: entity
   id: ChemistryBottleVirucidine
@@ -35,13 +31,11 @@
   components:
   - type: Label
     currentLabel: reagent-name-virucidine
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Virucidine
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Virucidine
+        Quantity: 30
 
 - type: entity
   id: ChemistryBottlePanacemycin
@@ -50,13 +44,11 @@
   components:
   - type: Label
     currentLabel: reagent-name-panacemycin
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Panacemycin
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Panacemycin
+        Quantity: 30
 
 - type: entity
   id: ChemistryBottleSeptomycin
@@ -65,13 +57,11 @@
   components:
   - type: Label
     currentLabel: reagent-name-septomycin
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Septomycin
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Septomycin
+        Quantity: 30
 
 - type: entity
   id: ChemistryBottleNecrovir
@@ -80,10 +70,8 @@
   components:
   - type: Label
     currentLabel: reagent-name-necrovir
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Necrovir
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Necrovir
+        Quantity: 30
