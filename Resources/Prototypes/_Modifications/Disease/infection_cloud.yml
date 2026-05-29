@@ -1,3 +1,7 @@
+- type: edgeSpreader
+  id: SunriseDiseaseCloud
+  updatesPerSecond: 1
+
 - type: entity
   id: DiseaseInfectionCloud
   name: зараженное облако

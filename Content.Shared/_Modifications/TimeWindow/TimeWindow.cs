@@ -30,7 +30,7 @@ public sealed partial class TimedWindow
     }
 }
 
-public sealed class TimedWindowSystem : EntitySystem
+public sealed partial class TimedWindowSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _random = default!;

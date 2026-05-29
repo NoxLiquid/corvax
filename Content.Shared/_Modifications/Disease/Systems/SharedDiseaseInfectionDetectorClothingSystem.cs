@@ -4,7 +4,7 @@ using Content.Shared.Inventory.Events;
 
 namespace Content.Shared._Modifications.Disease.Systems;
 
-public sealed class SharedDiseaseInfectionDetectorClothingSystem : EntitySystem
+public sealed partial class SharedDiseaseInfectionDetectorClothingSystem : EntitySystem
 {
     [Dependency] private SharedEyeSystem _eye = default!;
 
