@@ -13,8 +13,8 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 
 public abstract class DiseaseSymptomBase : IDiseaseSymptom
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     public TimedWindow EffectTimedWindow { get; }
     public ProtoId<DiseaseSymptomPrototype> PrototypeId { get; }
     protected DiseaseSymptomBase(TimedWindow effectTimedWindow)

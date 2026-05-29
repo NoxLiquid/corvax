@@ -17,8 +17,8 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("NecrosisSymptom")]
 public sealed class NecrosisSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
     private static readonly ProtoId<DamageTypePrototype> NecrosisDamageType = "Cellular";
     private float _minDamage = 1f;
     private float _maxDamage = 10f;

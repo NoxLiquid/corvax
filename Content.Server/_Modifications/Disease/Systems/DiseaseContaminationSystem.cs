@@ -9,8 +9,8 @@ namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed class DiseaseContaminationSystem : EntitySystem
 {
-    [Dependency] private readonly DiseaseSystem _disease = default!;
-    [Dependency] private readonly TimedWindowSystem _timedWindow = default!;
+    [Dependency] private DiseaseSystem _disease = default!;
+    [Dependency] private TimedWindowSystem _timedWindow = default!;
     private readonly ProtoId<ReactiveGroupPrototype> _antisepticGroup = "Antiseptic";
 
     public override void Initialize()

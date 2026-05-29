@@ -12,7 +12,7 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("NeuroSpikeSymptom")]
 public sealed class NeuroSpikeSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
     private TimedWindow _duration = default!;
 
     public NeuroSpikeSymptom(TimedWindow effectTimedWindow) : base(effectTimedWindow)

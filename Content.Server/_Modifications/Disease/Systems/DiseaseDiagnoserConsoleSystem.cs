@@ -16,11 +16,11 @@ namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed class DiseaseDiagnoserConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
-    [Dependency] private readonly DiseaseDiagnoserDataServerSystem _dataServer = default!;
-    [Dependency] private readonly DiseaseDiagnoserSystem _diagnoser = default!;
-    [Dependency] private readonly DiseaseSolutionAnalyzerSystem _diseaseSolutionAnalyzer = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;
+    [Dependency] private DiseaseDiagnoserDataServerSystem _dataServer = default!;
+    [Dependency] private DiseaseDiagnoserSystem _diagnoser = default!;
+    [Dependency] private DiseaseSolutionAnalyzerSystem _diseaseSolutionAnalyzer = default!;
 
     public override void Initialize()
     {

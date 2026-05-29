@@ -16,7 +16,7 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("CoughSymptom")]
 public sealed class CoughSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
     private static readonly ProtoId<EmotePrototype> CoughEmote = "Cough";
 
     public CoughSymptom(TimedWindow effectTimedWindow) : base(effectTimedWindow)

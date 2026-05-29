@@ -12,7 +12,7 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("AddStaminaSymptom")]
 public sealed class AddStaminaSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
 
     private static readonly EntProtoId DiseaseStaminaModifierStatusEffect = "StatusEffectDiseaseStaminaModifier";
 

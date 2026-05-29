@@ -11,7 +11,7 @@ namespace Content.Server._Modifications.Disease.Effects;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class DamageDiseaseEntityEffectsSystem : EntityEffectSystem<DiseaseComponent, DamageDiseaseEffect>
 {
-    [Dependency] private readonly DiseaseSystem _diseaseSystem = default!;
+    [Dependency] private DiseaseSystem _diseaseSystem = default!;
     protected override void Effect(Entity<DiseaseComponent> entity, ref EntityEffectEvent<DamageDiseaseEffect> args)
     {
         // Масштабируем урон и рост резиста

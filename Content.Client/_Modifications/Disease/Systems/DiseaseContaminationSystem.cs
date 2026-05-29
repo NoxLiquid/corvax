@@ -15,9 +15,9 @@ public sealed class DiseaseContaminationSystem : EntitySystem
     private static readonly ProtoId<ShaderPrototype> ContaminationShader = "DiseaseContamination";
     private const string ContaminationLayerKeyPrefix = "disease-contamination-";
 
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
     private readonly Dictionary<EntityUid, ContaminationVisuals> _visuals = new();
 
     private sealed class ContaminationVisuals(ShaderInstance shader)

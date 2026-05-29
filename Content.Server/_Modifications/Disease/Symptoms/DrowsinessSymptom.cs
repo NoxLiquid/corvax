@@ -13,8 +13,8 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("DrowsinessSymptom")]
 public sealed class DrowsinessSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
     public static readonly EntProtoId StatusEffectForcedSleeping = "StatusEffectForcedSleeping";
 
     private const float MinSleepDuration = 5f;

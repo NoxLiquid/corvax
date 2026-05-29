@@ -12,7 +12,7 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("BlindableSymptom")]
 public sealed class BlindableSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
     private float _eyeDamageProcent = 0.7f;
     private int _eyeTotalDamage = 0;
 

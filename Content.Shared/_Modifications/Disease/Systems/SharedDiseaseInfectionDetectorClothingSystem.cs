@@ -6,7 +6,7 @@ namespace Content.Shared._Modifications.Disease.Systems;
 
 public sealed class SharedDiseaseInfectionDetectorClothingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
 
     public const SlotFlags ValidSlots =
         SlotFlags.HEAD |

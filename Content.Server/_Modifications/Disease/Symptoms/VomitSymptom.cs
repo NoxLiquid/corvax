@@ -12,7 +12,7 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("VomitSymptom")]
 public sealed class VomitSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
 
     public VomitSymptom(TimedWindow effectTimedWindow) : base(effectTimedWindow)
     { }

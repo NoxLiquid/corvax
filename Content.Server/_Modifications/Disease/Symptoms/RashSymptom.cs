@@ -13,7 +13,7 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("RashSymptom")]
 public sealed class RashSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
     private const string RashEmote = "чешется";
 
     public RashSymptom(TimedWindow effectTimedWindow) : base(effectTimedWindow)

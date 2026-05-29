@@ -13,7 +13,7 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("VocalDisruptionSymptom")]
 public sealed class VocalDisruptionSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
     private static readonly ProtoId<ReplacementAccentPrototype> Accent = "disease";
     private ProtoId<ReplacementAccentPrototype>? _oldAccent = null;
 

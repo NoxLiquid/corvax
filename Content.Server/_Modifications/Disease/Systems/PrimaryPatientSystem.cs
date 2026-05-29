@@ -11,10 +11,10 @@ namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed class PrimaryPatientSystem : EntitySystem
 {
-    [Dependency] private readonly SentientDiseaseSystem _sentientDiseaseSystem = default!;
-    [Dependency] private readonly DiseaseSystem _disease = default!;
-    [Dependency] private readonly TimedWindowSystem _timedWindowSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private SentientDiseaseSystem _sentientDiseaseSystem = default!;
+    [Dependency] private DiseaseSystem _disease = default!;
+    [Dependency] private TimedWindowSystem _timedWindowSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
     private const int Compensation = 5000;
     public override void Initialize()
     {

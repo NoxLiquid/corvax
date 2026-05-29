@@ -16,14 +16,14 @@ namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed class SentientDiseaseSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly DiseaseSystem _diseaseSystem = default!;
-    [Dependency] private readonly DiseaseInfectionCloudSystem _diseaseCloud = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TimedWindowSystem _timedWindowSystem = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private DiseaseSystem _diseaseSystem = default!;
+    [Dependency] private DiseaseInfectionCloudSystem _diseaseCloud = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TimedWindowSystem _timedWindowSystem = default!;
     private const int PrimaryPatientPrice = 1000;
     private const int ModifyPointsRegenPerInfected = 2;
     public override void Initialize()

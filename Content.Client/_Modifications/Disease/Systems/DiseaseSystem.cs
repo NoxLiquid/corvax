@@ -11,8 +11,8 @@ namespace Content.Client._Modifications.Disease.Systems;
 
 public sealed class DiseaseSystem : SharedDiseaseSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

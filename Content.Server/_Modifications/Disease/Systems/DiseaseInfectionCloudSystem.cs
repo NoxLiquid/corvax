@@ -11,11 +11,11 @@ namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed class DiseaseInfectionCloudSystem : EntitySystem
 {
-    [Dependency] private readonly DiseaseSystem _disease = default!;
-    [Dependency] private readonly DiseaseContaminationSystem _contamination = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private DiseaseSystem _disease = default!;
+    [Dependency] private DiseaseContaminationSystem _contamination = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
     private static readonly EntProtoId CloudPrototype = "DiseaseInfectionCloud";
 
     public override void Initialize()

@@ -25,16 +25,16 @@ namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed class DiseaseDiagnoserSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly DiseaseDiagnoserConsoleSystem _console = default!;
-    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly DiseaseDiagnoserDataServerSystem _dataServer = default!;
-    [Dependency] private readonly PaperSystem _paperSystem = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly TimedWindowSystem _timedWindowSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private DiseaseDiagnoserConsoleSystem _console = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private DiseaseDiagnoserDataServerSystem _dataServer = default!;
+    [Dependency] private PaperSystem _paperSystem = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private TimedWindowSystem _timedWindowSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
     private const string DnaContainerKey = "dna_container_disease_diagnoser";
     private const string FlaskContainerKey = "flask_container_disease_diagnoser";
     public ProtoId<ReagentPrototype> Reagent = "DiseaseSolution";

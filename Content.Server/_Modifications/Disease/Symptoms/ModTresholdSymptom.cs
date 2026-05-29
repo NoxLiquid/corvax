@@ -12,7 +12,7 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("ModTresholdSymptom")]
 public sealed class ModTresholdSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
     private float _modTresholdModifier = 1.2f; // + 20%
     public ModTresholdSymptom(TimedWindow effectTimedWindow) : base(effectTimedWindow)
     { }

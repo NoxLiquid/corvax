@@ -20,12 +20,12 @@ namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed class DiseaseDiagnoserDataServerSystem : EntitySystem
 {
-    [Dependency] private readonly DiseaseDiagnoserConsoleSystem _console = default!;
-    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly DiseaseEvolutionConsoleSystem _evolutionConsoleSystem = default!;
-    [Dependency] private readonly TimedWindowSystem _timedWindowSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private DiseaseDiagnoserConsoleSystem _console = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private DiseaseEvolutionConsoleSystem _evolutionConsoleSystem = default!;
+    [Dependency] private TimedWindowSystem _timedWindowSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

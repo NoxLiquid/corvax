@@ -11,7 +11,7 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("ZombificationSymptom")]
 public sealed class ZombificationSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
 
     public ZombificationSymptom(TimedWindow effectTimedWindow) : base(effectTimedWindow)
     { }

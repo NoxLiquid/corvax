@@ -11,7 +11,7 @@ namespace Content.Server._Modifications.Disease.Symptoms;
 [DiseaseSymptom("ParalyzedLegsSymptom")]
 public sealed class ParalyzedLegsSymptom : DiseaseSymptomBase
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
     private bool _hasComp = false;
 
     public ParalyzedLegsSymptom(TimedWindow effectTimedWindow) : base(effectTimedWindow)

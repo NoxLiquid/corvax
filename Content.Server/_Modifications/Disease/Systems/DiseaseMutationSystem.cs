@@ -22,13 +22,13 @@ namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed class DiseaseMutationSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly DiseaseSystem _disease = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly TimedWindowSystem _timedWindowSystem = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private DiseaseSystem _disease = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private TimedWindowSystem _timedWindowSystem = default!;
     private ISawmill _sawmill = default!;
 
     /// <summary>

@@ -13,10 +13,10 @@ namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed class DiseaseOutbreakRule : StationEventSystem<DiseaseOutbreakRuleComponent>
 {
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly DiseaseSystem _diseaseSystem = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private DiseaseSystem _diseaseSystem = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
     private ISawmill _sawmill = default!;
     public override void Initialize()
     {

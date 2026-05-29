@@ -13,9 +13,9 @@ namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed partial class EnsureDiseaseIntoSolutionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly DiseaseDiagnoserSystem _diseaseDiagnoser = default!;
-    [Dependency] private readonly DiseaseSystem _diseaseSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private DiseaseDiagnoserSystem _diseaseDiagnoser = default!;
+    [Dependency] private DiseaseSystem _diseaseSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

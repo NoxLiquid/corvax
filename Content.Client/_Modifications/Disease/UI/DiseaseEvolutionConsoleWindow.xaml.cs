@@ -16,8 +16,8 @@ namespace Content.Client._Modifications.Disease.UI;
 [GenerateTypedNameReferences]
 public sealed partial class DiseaseEvolutionConsoleWindow : DefaultWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
     private DiseaseEvolutionConsoleBoundUserInterfaceState? _lastUpdate;
     private readonly List<DiseaseSymptomPrototype> _availableSymptoms = new();
     private readonly List<SpeciesPrototype> _availableBodies = new();

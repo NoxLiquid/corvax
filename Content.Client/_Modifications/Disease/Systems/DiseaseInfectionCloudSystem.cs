@@ -6,7 +6,7 @@ namespace Content.Client._Modifications.Disease.Systems;
 
 public sealed class DiseaseInfectionCloudSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

@@ -14,9 +14,9 @@ namespace Content.Client._Modifications.Disease.Systems;
 /// </summary>
 public sealed class DiseaseSandboxUISystem : EntitySystem
 {
-    [Dependency] private readonly IUserInterfaceManager _ui = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly IConsoleHost _console = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private IConsoleHost _console = default!;
 
     private SandboxWindow? _trackedWindow;
     private Button? _toggleDiseaseButton;
