@@ -15,7 +15,7 @@ using Content.Shared._Modifications.Disease.Symptoms;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("NecrosisSymptom")]
-public sealed class NecrosisSymptom : DiseaseSymptomBase
+public sealed partial class NecrosisSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
     [Dependency] private IRobustRandom _random = default!;

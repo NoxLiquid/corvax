@@ -9,7 +9,7 @@ using Content.Shared.Movement.Systems;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("AddSpeedSymptom")]
-public sealed class AddSpeedSymptom : DiseaseSymptomBase
+public sealed partial class AddSpeedSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
     private float _addSpeedModifier = 0.2f;

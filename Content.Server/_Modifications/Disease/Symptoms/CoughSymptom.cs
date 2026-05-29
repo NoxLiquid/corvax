@@ -14,7 +14,7 @@ using Robust.Shared.Physics;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("CoughSymptom")]
-public sealed class CoughSymptom : DiseaseSymptomBase
+public sealed partial class CoughSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
     private static readonly ProtoId<EmotePrototype> CoughEmote = "Cough";

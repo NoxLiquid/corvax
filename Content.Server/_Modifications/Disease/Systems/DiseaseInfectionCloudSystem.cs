@@ -9,7 +9,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class DiseaseInfectionCloudSystem : EntitySystem
+public sealed partial class DiseaseInfectionCloudSystem : EntitySystem
 {
     [Dependency] private DiseaseSystem _disease = default!;
     [Dependency] private DiseaseContaminationSystem _contamination = default!;

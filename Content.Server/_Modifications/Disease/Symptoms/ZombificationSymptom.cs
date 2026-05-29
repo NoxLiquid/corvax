@@ -9,7 +9,7 @@ using Content.Shared.Zombies;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("ZombificationSymptom")]
-public sealed class ZombificationSymptom : DiseaseSymptomBase
+public sealed partial class ZombificationSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
 

@@ -20,7 +20,7 @@ using Content.Shared._Modifications.Disease;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class DiseaseMutationSystem : EntitySystem
+public sealed partial class DiseaseMutationSystem : EntitySystem
 {
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private DiseaseSystem _disease = default!;

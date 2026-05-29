@@ -18,7 +18,7 @@ using Content.Shared._Modifications.TimeWindow;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class DiseaseDiagnoserDataServerSystem : EntitySystem
+public sealed partial class DiseaseDiagnoserDataServerSystem : EntitySystem
 {
     [Dependency] private DiseaseDiagnoserConsoleSystem _console = default!;
     [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;

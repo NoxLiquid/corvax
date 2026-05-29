@@ -11,7 +11,7 @@ using Content.Shared._Modifications.Disease.Symptoms;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("DrowsinessSymptom")]
-public sealed class DrowsinessSymptom : DiseaseSymptomBase
+public sealed partial class DrowsinessSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
     [Dependency] private IRobustRandom _random = default!;

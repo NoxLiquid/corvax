@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class DiseaseContaminationSystem : EntitySystem
+public sealed partial class DiseaseContaminationSystem : EntitySystem
 {
     [Dependency] private DiseaseSystem _disease = default!;
     [Dependency] private TimedWindowSystem _timedWindow = default!;

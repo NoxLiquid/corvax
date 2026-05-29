@@ -11,7 +11,7 @@ using Content.Shared._Modifications.Disease.Symptoms;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("VocalDisruptionSymptom")]
-public sealed class VocalDisruptionSymptom : DiseaseSymptomBase
+public sealed partial class VocalDisruptionSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
     private static readonly ProtoId<ReplacementAccentPrototype> Accent = "disease";

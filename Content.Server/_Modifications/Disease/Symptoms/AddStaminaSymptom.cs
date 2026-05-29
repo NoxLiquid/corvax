@@ -10,7 +10,7 @@ using Content.Shared._Modifications.Disease.Symptoms;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("AddStaminaSymptom")]
-public sealed class AddStaminaSymptom : DiseaseSymptomBase
+public sealed partial class AddStaminaSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
 

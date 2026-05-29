@@ -11,7 +11,7 @@ using Content.Server._Modifications.Disease.Systems;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("RashSymptom")]
-public sealed class RashSymptom : DiseaseSymptomBase
+public sealed partial class RashSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
     private const string RashEmote = "чешется";

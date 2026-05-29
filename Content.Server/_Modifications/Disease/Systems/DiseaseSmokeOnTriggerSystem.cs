@@ -10,7 +10,7 @@ using Robust.Shared.Map;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class DiseaseSmokeOnTriggerSystem : EntitySystem
+public sealed partial class DiseaseSmokeOnTriggerSystem : EntitySystem
 {
     [Dependency] private IMapManager _mapMan = default!;
     [Dependency] private MapSystem _map = default!;

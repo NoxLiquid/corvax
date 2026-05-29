@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Client._Modifications.Disease.Systems;
 
-public sealed class DiseaseInfectionCloudSystem : EntitySystem
+public sealed partial class DiseaseInfectionCloudSystem : EntitySystem
 {
     [Dependency] private SpriteSystem _sprite = default!;
 

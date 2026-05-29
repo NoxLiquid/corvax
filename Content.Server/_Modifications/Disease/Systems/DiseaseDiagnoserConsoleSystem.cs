@@ -14,7 +14,7 @@ using Content.Shared._Modifications.Disease.Components;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class DiseaseDiagnoserConsoleSystem : EntitySystem
+public sealed partial class DiseaseDiagnoserConsoleSystem : EntitySystem
 {
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
     [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;

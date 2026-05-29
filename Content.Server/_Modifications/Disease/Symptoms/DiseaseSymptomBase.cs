@@ -11,7 +11,7 @@ using Content.Shared._Modifications.Disease.Symptoms;
 
 namespace Content.Server._Modifications.Disease.Symptoms;
 
-public abstract class DiseaseSymptomBase : IDiseaseSymptom
+public abstract partial class DiseaseSymptomBase : IDiseaseSymptom
 {
     [Dependency] private EntityManager _entityManager = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

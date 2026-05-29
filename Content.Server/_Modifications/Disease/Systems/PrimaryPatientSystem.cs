@@ -9,7 +9,7 @@ using Content.Shared.Popups;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class PrimaryPatientSystem : EntitySystem
+public sealed partial class PrimaryPatientSystem : EntitySystem
 {
     [Dependency] private SentientDiseaseSystem _sentientDiseaseSystem = default!;
     [Dependency] private DiseaseSystem _disease = default!;

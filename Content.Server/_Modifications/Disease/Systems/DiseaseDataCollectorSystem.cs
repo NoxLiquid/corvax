@@ -14,7 +14,7 @@ using Content.Shared.Examine;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class DiseaseDataCollectorSystem : EntitySystem
+public sealed partial class DiseaseDataCollectorSystem : EntitySystem
 {
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private IngestionSystem _ingestion = default!;

@@ -10,7 +10,7 @@ using Content.Shared.Mobs;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("ModTresholdSymptom")]
-public sealed class ModTresholdSymptom : DiseaseSymptomBase
+public sealed partial class ModTresholdSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
     private float _modTresholdModifier = 1.2f; // + 20%

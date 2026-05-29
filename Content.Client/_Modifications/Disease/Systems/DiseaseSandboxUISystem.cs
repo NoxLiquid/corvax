@@ -12,7 +12,7 @@ namespace Content.Client._Modifications.Disease.Systems;
 ///     Динамически добавляет кнопку переключения видимости заболеваний
 ///     в окно песочницы (SandboxWindow), не изменяя ванильные файлы.
 /// </summary>
-public sealed class DiseaseSandboxUISystem : EntitySystem
+public sealed partial class DiseaseSandboxUISystem : EntitySystem
 {
     [Dependency] private IUserInterfaceManager _ui = default!;
     [Dependency] private ISharedPlayerManager _player = default!;
@@ -74,7 +74,7 @@ public sealed class DiseaseSandboxUISystem : EntitySystem
         if (player == null)
             return;
 
-        var netEntity = EntityManager.GetNetEntity(player.Value);
+        var netEntity = GetNetEntity(player.Value);
 
         if (args.Pressed)
             _console.ExecuteCommand($"addcomp {netEntity.Id} DiseaseSandboxVisibility");

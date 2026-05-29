@@ -9,7 +9,7 @@ using Content.Shared._Modifications.Disease;
 
 namespace Content.Client._Modifications.Disease.Systems;
 
-public sealed class DiseaseSystem : SharedDiseaseSystem
+public sealed partial class DiseaseSystem : SharedDiseaseSystem
 {
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private IPlayerManager _player = default!;

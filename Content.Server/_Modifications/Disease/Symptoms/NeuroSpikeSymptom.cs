@@ -10,7 +10,7 @@ using Content.Shared._Modifications.Disease.Symptoms;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("NeuroSpikeSymptom")]
-public sealed class NeuroSpikeSymptom : DiseaseSymptomBase
+public sealed partial class NeuroSpikeSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
     private TimedWindow _duration = default!;

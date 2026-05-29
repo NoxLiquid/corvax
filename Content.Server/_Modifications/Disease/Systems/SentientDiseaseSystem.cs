@@ -14,7 +14,7 @@ using Content.Shared._Modifications.TimeWindow;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class SentientDiseaseSystem : EntitySystem
+public sealed partial class SentientDiseaseSystem : EntitySystem
 {
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

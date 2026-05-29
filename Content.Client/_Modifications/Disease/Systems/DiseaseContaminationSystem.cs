@@ -10,7 +10,7 @@ using static Robust.Client.GameObjects.SpriteComponent;
 
 namespace Content.Client._Modifications.Disease.Systems;
 
-public sealed class DiseaseContaminationSystem : EntitySystem
+public sealed partial class DiseaseContaminationSystem : EntitySystem
 {
     private static readonly ProtoId<ShaderPrototype> ContaminationShader = "DiseaseContamination";
     private const string ContaminationLayerKeyPrefix = "disease-contamination-";

@@ -11,7 +11,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class DiseaseOutbreakRule : StationEventSystem<DiseaseOutbreakRuleComponent>
+public sealed partial class DiseaseOutbreakRule : StationEventSystem<DiseaseOutbreakRuleComponent>
 {
     [Dependency] private ISharedPlayerManager _playerManager = default!;
     [Dependency] private DiseaseSystem _diseaseSystem = default!;

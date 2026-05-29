@@ -326,6 +326,13 @@ health-analyzer-window-entity-infected-text =
 # Должность
 job-description-virologist = Изучайте вирусы, разрабатывайте вакцины и защищайте станцию от эпидемий.
 
+# Экипировка
+loadout-group-virologist-head = Вирусолог, голова
+loadout-group-virologist-jumpsuit = Вирусолог, комбинезон
+loadout-group-virologist-backpack = Вирусолог, рюкзак
+loadout-group-virologist-outerclothing = Вирусолог, верхняя одежда
+loadout-group-medical-gloves = Медицинские, перчатки
+
 # Метаболизм
 metabolism-stage-petri = Чаша Петри
 

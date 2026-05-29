@@ -17,7 +17,7 @@ using Content.Shared.Humanoid.Prototypes;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class DiseaseEvolutionConsoleSystem : EntitySystem
+public sealed partial class DiseaseEvolutionConsoleSystem : EntitySystem
 {
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
     [Dependency] private PowerReceiverSystem _powerReceiverSystem = default!;

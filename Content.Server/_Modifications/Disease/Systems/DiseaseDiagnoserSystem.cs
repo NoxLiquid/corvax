@@ -23,7 +23,7 @@ using Content.Shared.Humanoid.Prototypes;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
-public sealed class DiseaseDiagnoserSystem : EntitySystem
+public sealed partial class DiseaseDiagnoserSystem : EntitySystem
 {
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
@@ -64,7 +64,7 @@ public sealed class DiseaseDiagnoserSystem : EntitySystem
             if (comp.Status == DiseaseDiagnoserStatus.Off)
                 SetStatus((uid, comp), DiseaseDiagnoserStatus.On);
 
-            if (EntityManager.EntityExists(comp.CurrentSoundEntity) && comp.Status != DiseaseDiagnoserStatus.Printing)
+            if (Exists(comp.CurrentSoundEntity) && comp.Status != DiseaseDiagnoserStatus.Printing)
                 continue;
 
             switch (comp.Status)

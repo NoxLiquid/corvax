@@ -9,7 +9,7 @@ using Content.Shared._Modifications.Disease.Symptoms;
 namespace Content.Server._Modifications.Disease.Symptoms;
 
 [DiseaseSymptom("ParalyzedLegsSymptom")]
-public sealed class ParalyzedLegsSymptom : DiseaseSymptomBase
+public sealed partial class ParalyzedLegsSymptom : DiseaseSymptomBase
 {
     [Dependency] private EntityManager _entityManager = default!;
     private bool _hasComp = false;
