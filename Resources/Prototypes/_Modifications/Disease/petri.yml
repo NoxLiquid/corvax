@@ -96,7 +96,7 @@
     tags: 
     - DiseaseAlwaysInfectable
     - IgnoreCanInfect
-    - DiseaseIgnorSymptoms
+    - DiseaseIgnoreSymptoms
   - type: ZombieImmune
   - type: Construction
     graph: petri

@@ -11,4 +11,4 @@
   id: IgnoreCanInfect
 
 - type: Tag
-  id: DiseaseIgnorSymptoms
+  id: DiseaseIgnoreSymptoms

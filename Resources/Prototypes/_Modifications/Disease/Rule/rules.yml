@@ -7,7 +7,7 @@
       Low: 2
       Medium: 1
     bodyCount: 4
-    numberPrimaryPacienst: 1
+    numberPrimaryPatients: 1
   - type: StationEvent
     weight: 10
     duration: null
@@ -24,7 +24,7 @@
       Low: 4
       Medium: 3
     bodyCount: 7
-    numberPrimaryPacienst: 1
+    numberPrimaryPatients: 1
   - type: StationEvent
     weight: 8
     duration: null
@@ -42,7 +42,7 @@
       Medium: 3
       High: 1
     bodyCount: 9
-    numberPrimaryPacienst: 1
+    numberPrimaryPatients: 1
   - type: StationEvent
     weight: 6
     duration: null

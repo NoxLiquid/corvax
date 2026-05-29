@@ -29,7 +29,7 @@ public sealed partial class DiseaseOutbreakRuleComponent : Component
     /// </summary>
     [DataField(required: true)]
     [ViewVariables(VVAccess.ReadOnly)]
-    public int NumberPrimaryPacienst;
+    public int NumberPrimaryPatients;
 
     /// <summary>
     ///     Если вирус не случайный

@@ -94,7 +94,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
     /// <summary>
     ///     Метка для сущностей, которые не могут проявить симпптомы.
     /// </summary>
-    public readonly ProtoId<TagPrototype> DiseaseIgnorSymptomsTag = "DiseaseIgnorSymptoms";
+    public readonly ProtoId<TagPrototype> DiseaseIgnoreSymptomsTag = "DiseaseIgnoreSymptoms";
     public override void Initialize()
     {
         base.Initialize();
@@ -170,7 +170,7 @@ public abstract partial class SharedDiseaseSystem : EntitySystem
         if (!Resolve(entity, ref entity.Comp, false))
             return false;
 
-        if (_tag.HasTag(entity, DiseaseIgnorSymptomsTag))
+        if (_tag.HasTag(entity, DiseaseIgnoreSymptomsTag))
             return false;
 
         if (_mobState.IsDead(entity))

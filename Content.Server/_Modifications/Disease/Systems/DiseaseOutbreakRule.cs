@@ -50,7 +50,7 @@ public sealed partial class DiseaseOutbreakRule : StationEventSystem<DiseaseOutb
             return;
         }
 
-        var toAdd = Math.Min(component.NumberPrimaryPacienst, validEntities.Count);
+        var toAdd = Math.Min(component.NumberPrimaryPatients, validEntities.Count);
 
         for (var i = 0; i < toAdd; i++)
         {
