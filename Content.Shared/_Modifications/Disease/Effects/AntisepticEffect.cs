@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 

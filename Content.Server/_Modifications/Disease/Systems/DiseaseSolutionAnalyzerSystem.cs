@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Robust.Server.Audio;
 using Content.Shared.Examine;
 using Robust.Shared.Containers;

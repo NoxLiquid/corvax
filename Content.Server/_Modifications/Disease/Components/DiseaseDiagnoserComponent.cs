@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Robust.Shared.Prototypes;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Audio;

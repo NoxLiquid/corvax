@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Shared.Roles.Components;
 using Robust.Shared.GameStates;
 

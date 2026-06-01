@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Shared._Modifications.Disease.Components;
 using Content.Shared._Modifications.TimeWindow;
 using Robust.Shared.Prototypes;

@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using System.Linq;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared._Modifications.Disease.Prototypes;

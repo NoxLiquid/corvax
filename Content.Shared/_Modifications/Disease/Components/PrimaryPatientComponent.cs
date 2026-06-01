@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Shared._Modifications.TimeWindow;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
