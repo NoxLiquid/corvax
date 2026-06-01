@@ -1,6 +1,3 @@
-// Developed by Nox project
-// Author: KloopRe
-
 using System.Reflection;
 using System.Linq;
 using Content.Shared._Modifications.Disease.Components;
