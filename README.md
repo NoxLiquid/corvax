@@ -35,4 +35,4 @@ Space Station 14 это ремейк SS13, который работает на 
 
 Обратите внимание, что некоторые ассеты лицензированы на некоммерческой основе [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или аналогичной некоммерческой лицензией, и их необходимо удалить, если вы хотите использовать этот проект в коммерческих целях.
 
-Все файлы в директориях `_Modifications` также лицензированы под [MIT](https://github.com/space-syndicate/space-station-14/blob/master/LICENSE.TXT).
+Все файлы в директориях `_Modifications` также лицензированы под [MIT](LICENSE.TXT).
