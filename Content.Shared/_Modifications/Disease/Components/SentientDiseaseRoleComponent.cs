@@ -1,0 +1,7 @@
+using Content.Shared.Roles.Components;
+using Robust.Shared.GameStates;
+
+namespace Content.Shared._Modifications.Disease.Components;
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class SentientDiseaseRoleComponent : BaseMindRoleComponent;
