@@ -29,6 +29,13 @@ public sealed partial class DiseaseOutbreakRuleComponent : Component
     public int NumberPrimaryPatients;
 
     /// <summary>
+    ///     Количество препаратов, к которым болезнь получит начальную устойчивость.
+    /// </summary>
+    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public int InitialResistanceCount;
+
+    /// <summary>
     ///     Если вирус не случайный
     /// </summary>
     [DataField]

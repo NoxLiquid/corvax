@@ -20,6 +20,9 @@ using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared._Modifications.Disease.Symptoms;
 using Content.Shared.Humanoid;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared._Modifications.Disease.Effects;
+using Content.Server.Mind;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
@@ -36,6 +39,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private TimedWindowSystem _timedWindowSystem = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private MindSystem _mind = default!;
     private DiseaseSymptomFactoryRegistry _symptomFactories = default!;
     private ISawmill _sawmill = default!;
     private static readonly ProtoId<DiseaseSymptomPrototype> AnimalInfestationId = "AnimalInfestationSymptom";
@@ -117,6 +121,26 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     private void OnCauseDisease(Entity<DiseaseComponent> entity, ref CauseDiseaseEvent args)
     {
         RebuildSymptoms(entity, args.SourceData);
+
+        var strainId = args.SourceData.StrainId;
+        if (string.IsNullOrEmpty(strainId))
+            return;
+
+        var query = EntityQueryEnumerator<SentientDiseaseComponent>();
+        while (query.MoveNext(out var uid, out var sentient))
+        {
+            if (sentient.Data == null || sentient.Data.StrainId != strainId)
+                continue;
+
+            if (!_mind.TryGetMind(uid, out var mindUid, out var mind))
+                continue;
+
+            foreach (var obj in _mind.EnumerateObjectives<InfectConditionComponent>((mindUid, mind)))
+            {
+                var comp = Comp<InfectConditionComponent>(obj);
+                comp.InfectedEntities.Add(entity.Owner);
+            }
+        }
     }
 
     private void OnCureDisease(Entity<DiseaseComponent> entity, ref CureDiseaseEvent args)
@@ -277,6 +301,8 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     ///     Используйте RebuildSymptoms, а не RefreshSymptoms, если данные должны соответствовать источнику
     ///     Добавляет интерфейсы в компонент из симптомов DiseaseData.
     ///     Полностью сносим и пересобираем под DiseaseData из источника, иная логика может привести к ошибкам.
+    ///     НЕ копирует MutationPoints, Threshold, RegenThreshold, RegenMutationPoints, SpeedModifier и другие параметры — они
+    ///     сбрасываются в дефолт
     /// </summary>
     public void RebuildSymptoms(Entity<DiseaseComponent> host, DiseaseData source)
     {
@@ -400,6 +426,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
             && targetDisease.Data.StrainId == data.StrainId)
         {
             MergeMedicineResistance(data, targetDisease.Data);
+            return;
         }
 
         // Проверяем PrimaryPatient и другой штамм
@@ -505,6 +532,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     public DiseaseData GenerateDiseaseData(
     Dictionary<DangerIndicatorSymptom, int> symptomsByDanger,
     int bodyCount,
+    int initialResistanceCount = 0,
     string strainId = "")
     {
         var data = CreateNewDisease(strainId);
@@ -557,6 +585,22 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
                     if (availableBodies.Count == 0)
                         break;
                 }
+            }
+        }
+
+        if (initialResistanceCount > 0)
+        {
+            var availableKeys = GetMedicineResistanceKeys();
+            var toAdd = Math.Min(initialResistanceCount, availableKeys.Count);
+
+            for (var i = 0; i < toAdd; i++)
+            {
+                var key = _random.PickAndTake(availableKeys);
+                var resistance = _random.NextFloat(BaseDiseaseSettings.MinInitialResistance, BaseDiseaseSettings.MaxInitialResistance);
+                data.MedicineResistance[key] = resistance;
+
+                if (availableKeys.Count == 0)
+                    break;
             }
         }
 
@@ -852,4 +896,28 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         _sawmill.Info($"[Disease] Registered {count} symptoms.");
     }
 
+    /// <summary>
+    ///     Собирает уникальные ключи антибиотика из всех реагентов с эффектом <see cref="DamageDiseaseEffect"/>.
+    /// </summary>
+    public List<string> GetMedicineResistanceKeys()
+    {
+        var keys = new HashSet<string>();
+
+        foreach (var reagent in _prototype.EnumeratePrototypes<ReagentPrototype>())
+        {
+            if (reagent.Metabolisms == null)
+                continue;
+
+            foreach (var entry in reagent.Metabolisms.Metabolisms.Values)
+            {
+                foreach (var effect in entry.Effects)
+                {
+                    if (effect is DamageDiseaseEffect damageEffect)
+                        keys.Add(damageEffect.Key);
+                }
+            }
+        }
+
+        return keys.ToList();
+    }
 }
