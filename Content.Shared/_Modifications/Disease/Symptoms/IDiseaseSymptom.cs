@@ -30,6 +30,7 @@ public interface IDiseaseSymptom
 
     /// <summary>
     ///     Запускает эффект симптома.
+    ///     Запускается переодически с течением времени.
     /// </summary>
     void DoEffect(EntityUid host, DiseaseComponent disease);
 
@@ -39,7 +40,7 @@ public interface IDiseaseSymptom
     IDiseaseSymptom Clone();
 
     /// <summary>
-    ///     Применяет эффект симптома к данным вируса.
+    ///     Применяет эффект симптома к данным вируса. Используйте только для изменения атрибутов DiseaseData.
     ///     data - данные вируса.
     ///     add - применить/убрать эффект?
     /// </summary>
