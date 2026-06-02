@@ -22,7 +22,7 @@ using Content.Shared._Modifications.Disease.Symptoms;
 using Content.Shared.Humanoid;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared._Modifications.Disease.Effects;
-using Content.Shared.EntityEffects;
+using Content.Server.Mind;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
@@ -39,6 +39,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private TimedWindowSystem _timedWindowSystem = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private MindSystem _mind = default!;
     private DiseaseSymptomFactoryRegistry _symptomFactories = default!;
     private ISawmill _sawmill = default!;
     private static readonly ProtoId<DiseaseSymptomPrototype> AnimalInfestationId = "AnimalInfestationSymptom";
@@ -120,6 +121,26 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     private void OnCauseDisease(Entity<DiseaseComponent> entity, ref CauseDiseaseEvent args)
     {
         RebuildSymptoms(entity, args.SourceData);
+
+        var strainId = args.SourceData.StrainId;
+        if (string.IsNullOrEmpty(strainId))
+            return;
+
+        var query = EntityQueryEnumerator<SentientDiseaseComponent>();
+        while (query.MoveNext(out var uid, out var sentient))
+        {
+            if (sentient.Data == null || sentient.Data.StrainId != strainId)
+                continue;
+
+            if (!_mind.TryGetMind(uid, out var mindUid, out var mind))
+                continue;
+
+            foreach (var obj in _mind.EnumerateObjectives<InfectConditionComponent>((mindUid, mind)))
+            {
+                var comp = Comp<InfectConditionComponent>(obj);
+                comp.InfectedEntities.Add(entity.Owner);
+            }
+        }
     }
 
     private void OnCureDisease(Entity<DiseaseComponent> entity, ref CureDiseaseEvent args)

@@ -54,7 +54,7 @@
     minimumPlayers: 10
 
 - type: entity
-  parent: BaseGameRule
+  parent: BaseAntagGhostRoleRule
   id: SentientDiseaseOutbreakRule
   categories: [ HideSpawnMenu ]
   components:
@@ -64,5 +64,17 @@
     earliestStart: 45
     reoccurrenceDelay: 60
     minimumPlayers: 35
-  - type: RandomSpawnRule
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
     prototype: SentientDisease
+  - type: AntagObjectives
+    objectives:
+    - InfectObjective
+  - type: AntagSelection
+    agentName: sentient-disease-round-end-agent-name
+    antags:
+    - !type:FixedAntagCount
+      proto: SentientDiseaseSpecifier
+  - type: DynamicRuleCost
+    cost: 100

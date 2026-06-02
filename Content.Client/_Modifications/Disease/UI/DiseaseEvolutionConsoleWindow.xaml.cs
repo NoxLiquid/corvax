@@ -143,7 +143,7 @@ public sealed partial class DiseaseEvolutionConsoleWindow : DefaultWindow
                 if (_prototype.TryIndex(active, out var proto))
                 {
                     ActiveSymptomsList.AddItem(
-                        $"{Loc.GetString(proto.Name)} ({price})",
+                        $"{proto.Name} ({price})",
                         metadata: active
                     );
                 }
@@ -162,7 +162,7 @@ public sealed partial class DiseaseEvolutionConsoleWindow : DefaultWindow
 
                 var price = diseaseSystem.GetSymptomPrice(state.ActiveSymptoms, proto.ID);
                 AvailableSymptomsList.AddItem(
-                    $"{Loc.GetString(proto.Name)} ({price})",
+                    $"{proto.Name} ({price})",
                     metadata: proto.ID
                 );
 
@@ -179,7 +179,7 @@ public sealed partial class DiseaseEvolutionConsoleWindow : DefaultWindow
                 if (_prototype.TryIndex(body, out var proto))
                 {
                     ActiveBodiesList.AddItem(
-                        $"{Loc.GetString(proto.Name)} ({price})",
+                        $"{proto.Name} ({price})",
                         metadata: body
                     );
                 }
@@ -199,7 +199,7 @@ public sealed partial class DiseaseEvolutionConsoleWindow : DefaultWindow
                 var price = diseaseSystem.GetBodyPrice(state.SpeciesWhitelist);
 
                 AvailableBodiesList.AddItem(
-                    $"{Loc.GetString(proto.Name)} ({price})",
+                    $"{proto.Name} ({price})",
                     metadata: proto.ID
                 );
 
