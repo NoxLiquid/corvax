@@ -8,6 +8,7 @@
       Medium: 1
     bodyCount: 4
     numberPrimaryPatients: 1
+    initialResistanceCount: 1
   - type: StationEvent
     weight: 10
     duration: null
@@ -25,6 +26,7 @@
       Medium: 3
     bodyCount: 7
     numberPrimaryPatients: 1
+    initialResistanceCount: 2
   - type: StationEvent
     weight: 8
     duration: null
@@ -43,6 +45,7 @@
       High: 1
     bodyCount: 9
     numberPrimaryPatients: 1
+    initialResistanceCount: 3
   - type: StationEvent
     weight: 6
     duration: null

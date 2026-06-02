@@ -73,6 +73,29 @@ public struct BaseDiseaseSettings
             { DiseaseHealingBedType.Normal, 0.5f },
             { DiseaseHealingBedType.Stasis, 0.1f },
         };
+
+    /// <summary>
+    ///     Ключи антибиотиков, к которым болезнь может получить начальную устойчивость.
+    /// </summary>
+    public static readonly string[] MedicineResistanceKeys =
+    {
+        "Infectizine",
+        "Mycocline",
+        "Septomycin",
+        "Virucidine",
+        "Panacemycin",
+        "Necrovir"
+    };
+
+    /// <summary>
+    ///     Нижнее значение начальной устойчивости к препарату.
+    /// </summary>
+    public const float MinInitialResistance = 0.4f;
+
+    /// <summary>
+    ///     Верхнее значение начальной устойчивости к препарату.
+    /// </summary>
+    public const float MaxInitialResistance = 0.9f;
 }
 
 public abstract partial class SharedDiseaseSystem : EntitySystem

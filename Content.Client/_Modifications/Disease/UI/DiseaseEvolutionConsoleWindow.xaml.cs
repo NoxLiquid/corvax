@@ -27,6 +27,9 @@ public sealed partial class DiseaseEvolutionConsoleWindow : DefaultWindow
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
+        TabContainer.SetTabTitle(EvolutionTab, Loc.GetString("disease-evolution-tab-evolution"));
+        TabContainer.SetTabTitle(WhitelistTab, Loc.GetString("disease-evolution-tab-whitelist"));
+
         AvailableSymptomsList.OnItemSelected += OnAvailableSymptomSelected;
         AvailableBodiesList.OnItemSelected += OnAvailableBodySelected;
 

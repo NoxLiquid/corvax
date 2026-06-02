@@ -505,6 +505,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     public DiseaseData GenerateDiseaseData(
     Dictionary<DangerIndicatorSymptom, int> symptomsByDanger,
     int bodyCount,
+    int initialResistanceCount = 0,
     string strainId = "")
     {
         var data = CreateNewDisease(strainId);
@@ -557,6 +558,22 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
                     if (availableBodies.Count == 0)
                         break;
                 }
+            }
+        }
+
+        if (initialResistanceCount > 0)
+        {
+            var availableKeys = BaseDiseaseSettings.MedicineResistanceKeys.ToList();
+            var toAdd = Math.Min(initialResistanceCount, availableKeys.Count);
+
+            for (var i = 0; i < toAdd; i++)
+            {
+                var key = _random.PickAndTake(availableKeys);
+                var resistance = _random.NextFloat(BaseDiseaseSettings.MinInitialResistance, BaseDiseaseSettings.MaxInitialResistance);
+                data.MedicineResistance[key] = resistance;
+
+                if (availableKeys.Count == 0)
+                    break;
             }
         }
 
