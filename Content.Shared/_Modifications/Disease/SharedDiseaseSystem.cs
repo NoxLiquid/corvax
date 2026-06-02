@@ -74,18 +74,6 @@ public struct BaseDiseaseSettings
             { DiseaseHealingBedType.Stasis, 0.1f },
         };
 
-    /// <summary>
-    ///     Ключи антибиотиков, к которым болезнь может получить начальную устойчивость.
-    /// </summary>
-    public static readonly string[] MedicineResistanceKeys =
-    {
-        "Infectizine",
-        "Mycocline",
-        "Septomycin",
-        "Virucidine",
-        "Panacemycin",
-        "Necrovir"
-    };
 
     /// <summary>
     ///     Нижнее значение начальной устойчивости к препарату.

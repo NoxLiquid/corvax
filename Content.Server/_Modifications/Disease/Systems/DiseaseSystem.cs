@@ -20,6 +20,9 @@ using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared._Modifications.Disease.Symptoms;
 using Content.Shared.Humanoid;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared._Modifications.Disease.Effects;
+using Content.Shared.EntityEffects;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
@@ -277,6 +280,8 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     ///     Используйте RebuildSymptoms, а не RefreshSymptoms, если данные должны соответствовать источнику
     ///     Добавляет интерфейсы в компонент из симптомов DiseaseData.
     ///     Полностью сносим и пересобираем под DiseaseData из источника, иная логика может привести к ошибкам.
+    ///     НЕ копирует MutationPoints, Threshold, RegenThreshold, RegenMutationPoints, SpeedModifier и другие параметры — они
+    ///     сбрасываются в дефолт
     /// </summary>
     public void RebuildSymptoms(Entity<DiseaseComponent> host, DiseaseData source)
     {
@@ -400,6 +405,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
             && targetDisease.Data.StrainId == data.StrainId)
         {
             MergeMedicineResistance(data, targetDisease.Data);
+            return;
         }
 
         // Проверяем PrimaryPatient и другой штамм
@@ -563,7 +569,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
 
         if (initialResistanceCount > 0)
         {
-            var availableKeys = BaseDiseaseSettings.MedicineResistanceKeys.ToList();
+            var availableKeys = GetMedicineResistanceKeys();
             var toAdd = Math.Min(initialResistanceCount, availableKeys.Count);
 
             for (var i = 0; i < toAdd; i++)
@@ -869,4 +875,28 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         _sawmill.Info($"[Disease] Registered {count} symptoms.");
     }
 
+    /// <summary>
+    ///     Собирает уникальные ключи антибиотика из всех реагентов с эффектом <see cref="DamageDiseaseEffect"/>.
+    /// </summary>
+    public List<string> GetMedicineResistanceKeys()
+    {
+        var keys = new HashSet<string>();
+
+        foreach (var reagent in _prototype.EnumeratePrototypes<ReagentPrototype>())
+        {
+            if (reagent.Metabolisms == null)
+                continue;
+
+            foreach (var entry in reagent.Metabolisms.Metabolisms.Values)
+            {
+                foreach (var effect in entry.Effects)
+                {
+                    if (effect is DamageDiseaseEffect damageEffect)
+                        keys.Add(damageEffect.Key);
+                }
+            }
+        }
+
+        return keys.ToList();
+    }
 }

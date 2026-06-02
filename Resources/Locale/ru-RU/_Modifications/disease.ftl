@@ -311,6 +311,9 @@ sentient-disease-role-greeting =
     Не действуйте открыто без необходимости.
     Вы, эпидемия, а не солдат.
 
+objective-issuer-sentient-disease = [color=#66cc66]Разумный вирус[/color]
+objective-condition-infect-title = Заразите { $count } организмов на станции.
+
 sentient-disease-round-end-agent-name = разумный вирус
 
 sentient-disease-title = Разумный вирус

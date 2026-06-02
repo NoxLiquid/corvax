@@ -8,6 +8,9 @@ using Content.Shared.Actions;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared._Modifications.TimeWindow;
+using Content.Server.Mind;
+using Content.Shared.Mind;
+using Robust.Shared.Player;
 
 namespace Content.Server._Modifications.Disease.Systems;
 
@@ -21,8 +24,10 @@ public sealed partial class SentientDiseaseSystem : EntitySystem
     [Dependency] private PopupSystem _popupSystem = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TimedWindowSystem _timedWindowSystem = default!;
+    [Dependency] private MindSystem _mind = default!;
     private const int PrimaryPatientPrice = 1000;
     private const int ModifyPointsRegenPerInfected = 2;
+    private const string InfectObjectiveProto = "InfectObjective";
     public override void Initialize()
     {
         base.Initialize();
@@ -33,6 +38,15 @@ public sealed partial class SentientDiseaseSystem : EntitySystem
         SubscribeLocalEvent<SentientDiseaseComponent, SelectPrimaryPatientEvent>(OnSelectPrimaryPatient);
         SubscribeLocalEvent<SentientDiseaseComponent, TeleportToPrimaryPatientEvent>(OnTeleportToPrimaryPatient);
         SubscribeLocalEvent<SentientDiseaseComponent, EvolutionConsoleUiButtonPressedMessage>(OnButtonPressed);
+        SubscribeLocalEvent<SentientDiseaseComponent, PlayerAttachedEvent>(OnPlayerAttached);
+    }
+
+    private void OnPlayerAttached(EntityUid uid, SentientDiseaseComponent component, PlayerAttachedEvent args)
+    {
+        if (!_mind.TryGetMind(uid, out var mindUid, out var mind))
+            return;
+
+        _mind.TryAddObjective(mindUid, mind, InfectObjectiveProto);
     }
 
     public override void Update(float frameTime)
