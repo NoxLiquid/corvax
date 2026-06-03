@@ -426,6 +426,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
             && targetDisease.Data.StrainId == data.StrainId)
         {
             MergeMedicineResistance(data, targetDisease.Data);
+            MergeSymptoms(data, (target, targetDisease));
             return;
         }
 
@@ -444,7 +445,27 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
     }
 
     /// <summary>
-    ///     Лучшие коэффициенты лекарственной устойчивости передаются от источника к цели и наоборот.
+    ///     Добавляет недостающие симптомы из источника в цель.
+    /// </summary>
+    private void MergeSymptoms(DiseaseData source, Entity<DiseaseComponent> target)
+    {
+        var changed = false;
+
+        foreach (var symptom in source.ActiveSymptom)
+        {
+            if (target.Comp.Data.ActiveSymptom.Contains(symptom))
+                continue;
+
+            target.Comp.Data.ActiveSymptom.Add(symptom);
+            changed = true;
+        }
+
+        if (changed)
+            RefreshSymptoms((target.Owner, (DiseaseComponent?)target.Comp));
+    }
+
+    /// <summary>
+    ///     Лучшие коэффициенты лекарственной устойчивости передаются от источника к цели.
     /// </summary>
     private void MergeMedicineResistance(DiseaseData source, DiseaseData target)
     {
@@ -460,13 +481,6 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
                 // Если элемента нет — добавляем
                 target.MedicineResistance[kvp.Key] = kvp.Value;
             }
-        }
-
-        // Также переносим недостающие элементы из target в source, если нужно
-        foreach (var kvp in target.MedicineResistance)
-        {
-            if (!source.MedicineResistance.ContainsKey(kvp.Key))
-                source.MedicineResistance[kvp.Key] = kvp.Value;
         }
     }
 

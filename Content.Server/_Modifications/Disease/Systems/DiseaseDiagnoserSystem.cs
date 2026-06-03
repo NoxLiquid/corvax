@@ -202,6 +202,7 @@ public sealed partial class DiseaseDiagnoserSystem : EntitySystem
             return;
         }
 
+        // TO DO стоит создать под это 1 ftl переменную
         // Собираем текст отчёта
 
         // 1) симптомы
