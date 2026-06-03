@@ -152,7 +152,7 @@ public sealed partial class DiseaseEvolutionConsoleSystem : EntitySystem
             if (TryComp<DiseaseSolutionAnalyzerComponent>(port, out var solutionAnalyzer))
             {
                 component.DiseaseSolutionAnalyzer = port;
-                solutionAnalyzer.ConnectedConsole = uid;
+                solutionAnalyzer.ConnectedEvolutionConsole = uid;
             }
 
             if (TryComp<DiseaseDiagnoserDataServerComponent>(port, out var server))
@@ -174,7 +174,7 @@ public sealed partial class DiseaseEvolutionConsoleSystem : EntitySystem
         if (TryComp<DiseaseSolutionAnalyzerComponent>(args.Sink, out var solutionAnalyzer) && args.SourcePort == component.DiseaseSolutionAnalyzerPort)
         {
             component.DiseaseSolutionAnalyzer = args.Sink;
-            solutionAnalyzer.ConnectedConsole = uid;
+            solutionAnalyzer.ConnectedEvolutionConsole = uid;
         }
 
         RecheckConnections((uid, component));
