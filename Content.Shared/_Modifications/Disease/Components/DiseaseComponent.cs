@@ -66,6 +66,8 @@ public sealed partial class DiseaseComponent : Component
 
 /// <summary>
 ///     Класс содержит данные об вирусе.
+///     Урал DataField атрибуты для параметров, которые не передаются в CloneForInfection.
+///     Они должны меняться только через симптомы.
 /// </summary>
 [ImplicitDataDefinitionForInheritors, Serializable, NetSerializable]
 public sealed partial class DiseaseData : ReagentData
@@ -100,35 +102,30 @@ public sealed partial class DiseaseData : ReagentData
     /// <summary>
     ///     Модификатор стоимости удаления симптома.
     /// </summary>
-    [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
     public int MultiPriceDeleteSymptom = 1;
 
     /// <summary>
     ///     Урон вирусу, если организм носителя мёртв.
     /// </summary>
-    [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
     public float DamageWhenDead = 5;
 
     /// <summary>
     ///     Модификатор скорости вируса.
     /// </summary>
-    [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
     public float SpeedModifier = 1f;
 
     /// <summary>
     ///     Регенерация вируса.
     /// </summary>
-    [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
     public float RegenThreshold = 1;
 
     /// <summary>
     ///     Регенерация очков мутации.
     /// </summary>
-    [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
     public int RegenMutationPoints = 1;
 
@@ -142,21 +139,18 @@ public sealed partial class DiseaseData : ReagentData
     /// <summary>
     ///     Живучесть вируса. Если <= 0, организм считается вылеченным.
     /// </summary>
-    [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
     public float Threshold = 100f;
 
     /// <summary>
     ///     Максимальное количествоочков живучести.
     /// </summary>
-    [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
     public float MaxThreshold = 100f;
 
     /// <summary>
     ///     Стандартное значение сопротивления медикаментам (антибиотикам).
     /// </summary>
-    [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
     public float DefaultMedicineResistance = 0f;
 
@@ -170,7 +164,6 @@ public sealed partial class DiseaseData : ReagentData
     /// <summary>
     ///     Показатель заразности вируса от 0 до 1.
     /// </summary>
-    [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
     public float Infectivity = 0f;
 
