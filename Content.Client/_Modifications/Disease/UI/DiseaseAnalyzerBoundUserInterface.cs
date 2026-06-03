@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Shared._Modifications.Disease;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;

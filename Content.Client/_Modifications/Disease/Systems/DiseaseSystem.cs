@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared._Modifications.Disease.Components;

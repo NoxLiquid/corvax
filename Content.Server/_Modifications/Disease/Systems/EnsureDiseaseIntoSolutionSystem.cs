@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Server._Modifications.Disease.Components;
 using Content.Shared._Modifications.Disease.Components;
 using Content.Shared.Chemistry.Components;

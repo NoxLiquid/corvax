@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using System.Linq;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.UserInterface;

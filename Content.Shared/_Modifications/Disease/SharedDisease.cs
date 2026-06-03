@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Shared.Inventory;
 using Robust.Shared.Serialization;
 using Content.Shared.DoAfter;

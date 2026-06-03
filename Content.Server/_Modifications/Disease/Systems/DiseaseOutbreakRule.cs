@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using System.Linq;
 using Content.Server._Modifications.Disease.Components;
 using Content.Server.StationEvents.Events;
@@ -38,7 +35,7 @@ public sealed partial class DiseaseOutbreakRule : StationEventSystem<DiseaseOutb
         }
 
         if (component.Data == null)
-            component.Data = _diseaseSystem.GenerateDiseaseData(component.SymptomsByDanger, component.BodyCount);
+            component.Data = _diseaseSystem.GenerateDiseaseData(component.SymptomsByDanger, component.BodyCount, component.InitialResistanceCount);
 
         var validEntities = ents
             .Where(ent => _diseaseSystem.CanInfect(ent, component.Data))

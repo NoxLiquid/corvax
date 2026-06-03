@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Shared._Modifications.Disease.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared._Modifications.Disease.Prototypes;
@@ -76,6 +73,17 @@ public struct BaseDiseaseSettings
             { DiseaseHealingBedType.Normal, 0.5f },
             { DiseaseHealingBedType.Stasis, 0.1f },
         };
+
+
+    /// <summary>
+    ///     Нижнее значение начальной устойчивости к препарату.
+    /// </summary>
+    public const float MinInitialResistance = 0.4f;
+
+    /// <summary>
+    ///     Верхнее значение начальной устойчивости к препарату.
+    /// </summary>
+    public const float MaxInitialResistance = 0.9f;
 }
 
 public abstract partial class SharedDiseaseSystem : EntitySystem

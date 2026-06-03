@@ -1,8 +1,3 @@
-<!--
-Developed by Nox project.
-Author: KloopRe
--->
-
 <controls:FancyWindow
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"

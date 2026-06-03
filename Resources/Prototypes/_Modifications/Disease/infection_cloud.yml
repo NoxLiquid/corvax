@@ -1,5 +1,5 @@
 - type: edgeSpreader
-  id: SunriseDiseaseCloud
+  id: DiseaseCloud
   updatesPerSecond: 1
 
 - type: entity
@@ -33,7 +33,7 @@
     lifetime: 300
   - type: ActiveEdgeSpreader
   - type: EdgeSpreader
-    id: SunriseDiseaseCloud
+    id: DiseaseCloud
   - type: DiseaseInfectionCloud
   - type: Reactive
     groups:

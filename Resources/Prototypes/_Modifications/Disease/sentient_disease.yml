@@ -56,26 +56,18 @@
   - type: SentientDisease
     data: 
       mutationPoints: 3000
-  - type: GhostTakeoverAvailable
-  - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: ghost-role-information-sentient-disease-name
-    description: ghost-role-information-sentient-disease-description
-    rules: ghost-role-information-sentient-disease-rules
-    mindRoles:
-    - MindRoleSentientDisease
-    raffle:
-      settings: default
-
+  
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner
   id: SpawnPointSentientDisease
   components:
-  - type: GhostRoleMobSpawner
-    prototype: SentientDisease
+  - type: GhostRole
+    name: ghost-role-information-sentient-disease-name
+    description: ghost-role-information-sentient-disease-description
+    rules: ghost-role-information-sentient-disease-rules
+    mindRoles:
+    - MindRoleSentientDisease
   - type: Sprite
     layers:
     - state: green

@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Shared._Modifications.Disease;
 using Robust.Server.GameObjects;
 using Content.Shared._Modifications.Disease.Components;
@@ -11,7 +8,6 @@ using Content.Shared.Actions;
 using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Shared._Modifications.TimeWindow;
-
 namespace Content.Server._Modifications.Disease.Systems;
 
 public sealed partial class SentientDiseaseSystem : EntitySystem

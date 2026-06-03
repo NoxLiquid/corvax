@@ -1,6 +1,3 @@
-// Developed by Nox project.
-// Author: KloopRe
-
 using Content.Server._Modifications.Disease.Systems;
 using Content.Shared._Modifications.Disease.Components;
 using Content.Shared._Modifications.Disease.Prototypes;
@@ -30,6 +27,13 @@ public sealed partial class DiseaseOutbreakRuleComponent : Component
     [DataField(required: true)]
     [ViewVariables(VVAccess.ReadOnly)]
     public int NumberPrimaryPatients;
+
+    /// <summary>
+    ///     Количество препаратов, к которым болезнь получит начальную устойчивость.
+    /// </summary>
+    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public int InitialResistanceCount;
 
     /// <summary>
     ///     Если вирус не случайный
