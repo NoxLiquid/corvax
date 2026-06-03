@@ -13,6 +13,7 @@
     tags:
     - Recyclable
     - Trash
+    - DiagnoserDataCollector # _Modification-Disease
   - type: BotanySwab
   - type: GuideHelp
     guides:

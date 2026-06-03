@@ -10,7 +10,6 @@ using Robust.Shared.Prototypes;
 using Content.Shared._Modifications.Disease.Components;
 using Robust.Server.GameObjects;
 using Content.Shared._Modifications.TimeWindow;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -237,7 +236,7 @@ public sealed partial class DiseaseDiagnoserSystem : EntitySystem
                 {
                     // используем локализованное имя, если доступно; иначе ID
                     var display = sp?.Name ?? protoId.ToString();
-                    names.Add(display);
+                    names.Add(Loc.GetString(display));
                 }
                 else
                 {
@@ -365,32 +364,31 @@ public sealed partial class DiseaseDiagnoserSystem : EntitySystem
 
         foreach (var flask in ents)
         {
-            if (!TryComp<SolutionManagerComponent>(flask, out var solutionManager))
-                continue;
-
-            if (!TryComp<DrawableSolutionComponent>(flask, out var injectable))
-                continue;
-
-            var entWrapper = new Entity<DrawableSolutionComponent?, SolutionManagerComponent?>(flask, injectable, solutionManager);
-
-            if (!_solutionContainer.TryGetDrawableSolution(entWrapper, out Entity<SolutionComponent>? solutionEntity, out Solution? solution))
+            if (!_solutionContainer.TryGetDrawableSolution(flask, out Entity<SolutionComponent>? solutionEntity, out Solution? solution))
                 continue;
 
             if (solutionEntity != null && solution != null)
             {
                 _solutionContainer.TryAddReagent(solutionEntity.Value, Reagent, solution.MaxVolume, out _);
 
-                foreach (var reagent in solution.Contents)
+                for (var i = 0; i < solution.Contents.Count; i++)
                 {
+                    var reagent = solution.Contents[i];
+
                     if (reagent.Reagent.Prototype != Reagent)
                         continue;
 
-                    List<ReagentData> reagentData = reagent.Reagent.EnsureReagentData();
+                    var reagentData = reagent.Reagent.Data != null
+                        ? new List<ReagentData>(reagent.Reagent.Data)
+                        : new List<ReagentData>();
 
                     reagentData.RemoveAll(x => x is DiseaseData);
-
                     reagentData.Add(ent.Comp.DiseaseDataCPU);
+
+                    solution.Contents[i] = new ReagentQuantity(new ReagentId(Reagent, reagentData), reagent.Quantity);
                 }
+
+                _solutionContainer.UpdateChemicals(solutionEntity.Value);
             }
         }
 

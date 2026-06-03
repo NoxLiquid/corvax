@@ -63,6 +63,11 @@
         transferForensics: true
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # _Modification-Disease-Start
+  - type: Tag
+    tags: 
+    - DiagnoserFlask
+  # _Modification-Disease-End
 
 - type: entity
   parent: [SolutionVeryTiny, BaseChemistryVial]

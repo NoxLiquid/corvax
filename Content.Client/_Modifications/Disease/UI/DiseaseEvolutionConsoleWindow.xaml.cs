@@ -179,7 +179,7 @@ public sealed partial class DiseaseEvolutionConsoleWindow : DefaultWindow
                 if (_prototype.TryIndex(body, out var proto))
                 {
                     ActiveBodiesList.AddItem(
-                        $"{proto.Name} ({price})",
+                        $"{Loc.GetString(proto.Name)} ({price})",
                         metadata: body
                     );
                 }
@@ -199,7 +199,7 @@ public sealed partial class DiseaseEvolutionConsoleWindow : DefaultWindow
                 var price = diseaseSystem.GetBodyPrice(state.SpeciesWhitelist);
 
                 AvailableBodiesList.AddItem(
-                    $"{proto.Name} ({price})",
+                    $"{Loc.GetString(proto.Name)} ({price})",
                     metadata: proto.ID
                 );
 

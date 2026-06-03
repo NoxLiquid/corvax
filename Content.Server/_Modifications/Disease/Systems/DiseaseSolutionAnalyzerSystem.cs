@@ -7,7 +7,6 @@ using System.Linq;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Modifications.Disease.Components;
 using Robust.Server.GameObjects;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared._Modifications.Disease;
 using Robust.Shared.Prototypes;
@@ -206,19 +205,8 @@ public sealed partial class DiseaseSolutionAnalyzerSystem : EntitySystem
         if (slot.ContainedEntity is not { } contained)
             return false;
 
-        if (!TryComp<SolutionManagerComponent>(contained, out var solutionManager))
-            return false;
-
-        if (!TryComp<DrawableSolutionComponent>(contained, out var drawable))
-            return false;
-
-        var wrapper = new Entity<DrawableSolutionComponent?, SolutionManagerComponent?>(
-            contained,
-            drawable,
-            solutionManager);
-
         if (!_solutionContainer.TryGetDrawableSolution(
-                wrapper,
+                contained,
                 out _,
                 out var solution))
             return false;

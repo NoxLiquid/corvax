@@ -48,7 +48,7 @@ disease-report-title = АНАЛИЗ ВИРУСНОГО ОБРАЗЦА
 
 disease-report-strain = Идентификатор штамма: {$id}
 disease-report-threshold = Состояние вируса (живучесть): {$value}
-disease-report-infectivity = Инфективность: {$value}%
+disease-report-infectivity = Заразность: {$value}%
 
 disease-report-damage-when-dead = Показатель уязвимости, если организм носителя мёртв: {$value}
 disease-report-mutation-points = Очки мутации: {$value}
@@ -171,8 +171,8 @@ disease-evolution-cost-label =
 
 ### WHITELIST TAB ###
 
-disease-evolution-available-bodies = Доступные тела
-disease-evolution-active-bodies = Активные тела
+disease-evolution-available-bodies = Доступные организмы
+disease-evolution-active-bodies = Активные организмы
 disease-evolution-buy-body = Добавить тело
 disease-evolution-delete-body = Удалить тело
 
