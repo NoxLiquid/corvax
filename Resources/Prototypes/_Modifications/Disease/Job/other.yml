@@ -34,6 +34,13 @@
   - type: Sprite
     layers:
     - state: default
+    - state: stripe_top
+      color: "#68aed6"
+    - state: stripe_bottom
+      color: "#325f7a"
+    - sprite: Interface/Misc/job_icons.rsi
+      offset: -0.09375, 0.0625
+      state: Virologist
   - type: PresetIdCard
     job: Virologist
 
@@ -45,6 +52,13 @@
   components:
   - type: Pda
     id: IDCardVirologist
+  - type: DiseaseAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: UserInterface
+    interfaces:
+      enum.DiseaseAnalyzerUiKey.Key:
+        type: DiseaseAnalyzerBoundUserInterface
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
