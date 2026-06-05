@@ -24,7 +24,7 @@ public sealed partial class DiseaseEvolutionConsoleComponent : Component
     public float MaxDistanceForDataServer = 50f;
 
     [DataField]
-    public float MaxDistanceForOther = 4f;
+    public float MaxDistanceForOther = 10f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool DataServerInRange = true;

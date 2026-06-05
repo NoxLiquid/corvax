@@ -97,6 +97,16 @@
                        Text="{Loc 'disease-evolution-dataserver-missing'}"/>
             </PanelContainer>
 
+            <!-- ANALYZER MISSING -->
+            <PanelContainer Name="EvolutionAnalyzerMissing"
+                            StyleClasses="Inset"
+                            VerticalExpand="True"
+                            Margin="5">
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="{Loc 'disease-evolution-solution-analyzer-missing'}"/>
+            </PanelContainer>
+
             <!-- !HASVIRUS -->
             <PanelContainer Name="DiseaseDataMissing"
                             StyleClasses="Inset"
@@ -115,6 +125,16 @@
                 <Label HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Text="{Loc 'disease-evolution-dataserver-far'}"/>
+            </PanelContainer>
+
+            <!-- ANALYZER FAR -->
+            <PanelContainer Name="EvolutionAnalyzerFar"
+                            StyleClasses="Inset"
+                            VerticalExpand="True"
+                            Margin="5">
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="{Loc 'disease-evolution-solution-analyzer-far'}"/>
             </PanelContainer>
 
         </BoxContainer>
@@ -180,7 +200,55 @@
                 </BoxContainer>
             </PanelContainer>
 
-            <!-- SERVER MISSING / FAR — без изменений -->
+            <!-- DATASERVER MISSING -->
+            <PanelContainer Name="WhitelistServerMissing"
+                            StyleClasses="Inset"
+                            VerticalExpand="True"
+                            Margin="5">
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="{Loc 'disease-evolution-dataserver-missing'}"/>
+            </PanelContainer>
+
+            <!-- ANALYZER MISSING -->
+            <PanelContainer Name="WhitelistAnalyzerMissing"
+                            StyleClasses="Inset"
+                            VerticalExpand="True"
+                            Margin="5">
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="{Loc 'disease-evolution-solution-analyzer-missing'}"/>
+            </PanelContainer>
+
+            <!-- !HASVIRUS -->
+            <PanelContainer Name="WhitelistDiseaseDataMissing"
+                            StyleClasses="Inset"
+                            VerticalExpand="True"
+                            Margin="5">
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="{Loc 'disease-evolution-diseasedata-missing'}"/>
+            </PanelContainer>
+
+            <!-- DATASERVER FAR -->
+            <PanelContainer Name="WhitelistServerFar"
+                            StyleClasses="Inset"
+                            VerticalExpand="True"
+                            Margin="5">
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="{Loc 'disease-evolution-dataserver-far'}"/>
+            </PanelContainer>
+
+            <!-- ANALYZER FAR -->
+            <PanelContainer Name="WhitelistAnalyzerFar"
+                            StyleClasses="Inset"
+                            VerticalExpand="True"
+                            Margin="5">
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Text="{Loc 'disease-evolution-solution-analyzer-far'}"/>
+            </PanelContainer>
 
         </BoxContainer>
 

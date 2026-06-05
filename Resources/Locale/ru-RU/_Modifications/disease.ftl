@@ -182,10 +182,10 @@ disease-evolution-diseasedata-missing =
     Данные об вирусе не найдены
 
 disease-evolution-dataserver-missing =
-    Сервер данных или анализатор веществ не подключён
+    Сервер данных не подключён
 
 disease-evolution-dataserver-far =
-    Сервер данных или анализатор веществ слишком далеко
+    Сервер данных слишком далеко
 
 
 ### SOLUTION ANALYZER STATES (на будущее) ###
