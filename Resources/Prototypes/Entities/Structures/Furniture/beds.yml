@@ -63,6 +63,7 @@
     noRot: true
   - type: Anchorable
   - type: Pullable
+  - type: DiseaseHealingBed # _Modification-Disease
 
 
 - type: entity
