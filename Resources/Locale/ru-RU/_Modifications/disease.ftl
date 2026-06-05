@@ -45,7 +45,7 @@ entity-effect-guidebook-damage-disease =
 disease-report-no-disease = Заболеваний не найдено. Образец чист.
 
 disease-report-full =
-    [center][b]АНАЛИЗ ОБРАЗЦА[/b][/center]
+    {"["}center][b]АНАЛИЗ ОБРАЗЦА[/b][/center]
     {""}
     Идентификатор штамма: {$strainId}
     {""}
@@ -69,7 +69,7 @@ disease-report-full =
     Допустимые к заражению организмы:
     {$bodies}
     {""}
-    [small]Отчёт сгенерирован вирусным диагностическим модулем.[/small]
+    {"["}small]Отчёт сгенерирован вирусным диагностическим модулем.[/small]
 
 disease-report-medicine-entry = - {$name}: {$value}
 disease-report-medicine-none = Не обнаружена
