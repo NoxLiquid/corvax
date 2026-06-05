@@ -1,5 +1,6 @@
+# _Modification-Disease-Start
 - type: entity
-  id: DiseaseDiagnoser
+  id: DiseaseDiagnoserNox
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]
   name: Disease Diagnoser Delta Extreme
   description: A machine that analyzes disease samples.
@@ -7,16 +8,60 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Machines/diagnoser.rsi
+    sprite: _Modifications/Disease/diagnoser.rsi
+    snapCardinals: true
     layers:
     - state: icon
-      map: ["enum.DiseaseMachineVisualLayers.IsRunning"]
+      map: [machineLayer]
     - state: unlit
-      shader: unshaded
-      map: ["enum.DiseaseMachineVisualLayers.IsOn"]
+      map: [terminalLayer]
   - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.DiseaseDiagnoserVisuals.Status:
+        machineLayer:
+          Off: {state: "icon"}
+          On: {state: "icon"}
+          Printing: {state: "running"}
+          Scanning: {state: "icon"}
+          Denial: {state: "icon"}
+          Successfully: {state: "icon"}
+          GenerateDisease: {state: "icon"}
+        terminalLayer:
+          Off: {state: "off_unlit", shader: unshaded}
+          On: {state: "unlit", shader: unshaded}
+          Printing: {state: "unlit", shader: unshaded}
+          Scanning: {state: "unlit", shader: unshaded}
+          Denial: {state: "denial_unlit", shader: unshaded}
+          Successfully: {state: "successfully_unlit", shader: unshaded}
+          GenerateDisease: {state: "unlit", shader: unshaded}
   - type: Machine
-    board: DiagnoserMachineCircuitboard
+    board: DiagnoserMachineCircuitboardNox
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceLinkSink
+    ports:
+      - DiseaseDiagnoserReceiver
+  - type: DiseaseDiagnoser
+    paper: DiagnosisReportPaperNox
+  - type: ContainerContainer
+    containers:
+      dna_container_disease_diagnoser: !type:ContainerSlot
+      flask_container_disease_diagnoser: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: ItemSlots
+    slots:
+      dna_container_disease_diagnoser:
+        whitelist:
+          tags:
+          - DiagnoserDataCollector
+      flask_container_disease_diagnoser:
+        whitelist:
+          tags:
+          - DiagnoserFlask
+# _Modification-Disease-End
 
 - type: entity
   name: disease diagnoser report
