@@ -201,27 +201,17 @@ public sealed partial class DiseaseDiagnoserSystem : EntitySystem
             return;
         }
 
-        // TO DO стоит создать под это 1 ftl переменную
-        // Собираем текст отчёта
-
-        // 1) симптомы
         var symptomsText =
             data.ActiveSymptom.Count == 0
                 ? Loc.GetString("disease-report-symptoms-none")
                 : string.Join(", ", data.ActiveSymptom.Select(symptom =>
                 {
-                    // Получаем строковый ID,
                     var id = symptom.ToString();
-
-                    // Если нашли прототип — возвращаем Name
-                    if (_prototypeManager.TryIndex<DiseaseSymptomPrototype>(id, out var proto))
-                        return proto.Name;
-
-                    // Если прототипа нет — fallback на ToString()
-                    return id;
+                    return _prototypeManager.TryIndex<DiseaseSymptomPrototype>(id, out var proto)
+                        ? proto.Name
+                        : id;
                 }));
 
-        // 2) виды (SpeciesWhitelist)
         string bodyText;
         if (data.SpeciesWhitelist == null || data.SpeciesWhitelist.Count == 0)
         {
@@ -233,21 +223,14 @@ public sealed partial class DiseaseDiagnoserSystem : EntitySystem
             foreach (var protoId in data.SpeciesWhitelist)
             {
                 if (_prototypeManager.TryIndex(protoId, out SpeciesPrototype? sp))
-                {
-                    // используем локализованное имя, если доступно; иначе ID
-                    var display = sp?.Name ?? protoId.ToString();
-                    names.Add(Loc.GetString(display));
-                }
+                    names.Add(Loc.GetString(sp.Name));
                 else
-                {
                     names.Add(protoId.ToString());
-                }
             }
 
             bodyText = string.Join(", ", names);
         }
 
-        // 3) медицина
         string medicineText;
         if (data.MedicineResistance == null || data.MedicineResistance.Count == 0)
         {
@@ -258,50 +241,28 @@ public sealed partial class DiseaseDiagnoserSystem : EntitySystem
             var lines = new List<string>();
             foreach (var kvp in data.MedicineResistance)
             {
-                var reagentId = kvp.Key;
-                var value = kvp.Value;
-
-                if (_prototypeManager.TryIndex<ReagentPrototype>(reagentId, out var rp))
-                {
-                    var reagentName = rp.LocalizedName;
-                    lines.Add(Loc.GetString("disease-report-medicine-entry", ("name", reagentName), ("value", value.ToString("0.00"))));
-                }
-                else
-                {
-                    lines.Add(Loc.GetString("disease-report-medicine-entry", ("name", reagentId.ToString()), ("value", value.ToString("0.00"))));
-                }
+                var reagentName = _prototypeManager.TryIndex<ReagentPrototype>(kvp.Key, out var rp)
+                    ? rp.LocalizedName
+                    : kvp.Key.ToString();
+                lines.Add(Loc.GetString("disease-report-medicine-entry", ("name", reagentName), ("value", kvp.Value.ToString("0.00"))));
             }
 
             medicineText = string.Join("\n", lines);
         }
 
-        var content = $@"
-        [center][b]{Loc.GetString("disease-report-title")}[/b][/center]
-
-        {Loc.GetString("disease-report-strain", ("id", data.StrainId))}
-
-        {Loc.GetString("disease-report-threshold", ("value", data.MaxThreshold.ToString("0.0")))}
-        {Loc.GetString("disease-report-infectivity", ("value", (data.Infectivity * 100).ToString("0")))}
-
-        {Loc.GetString("disease-report-damage-when-dead", ("value", data.DamageWhenDead.ToString("0.0")))}
-        {Loc.GetString("disease-report-mutation-points", ("value", data.MutationPoints.ToString("0")))}
-        {Loc.GetString("disease-report-regen-threshold", ("value", data.RegenThreshold.ToString("0.0")))}
-        {Loc.GetString("disease-report-regen-mutation", ("value", data.RegenMutationPoints.ToString("0.0")))}
-        {Loc.GetString("disease-report-milty-price-delete-symptom", ("value", data.MultiPriceDeleteSymptom.ToString("0.0")))}
-
-        {Loc.GetString("disease-report-default-medicine-resistance", ("value", data.DefaultMedicineResistance.ToString("0.00")))}
-
-        {Loc.GetString("disease-report-medicine-header")}
-        {medicineText}
-
-        {Loc.GetString("disease-report-symptoms-header")}
-        {(string.IsNullOrWhiteSpace(symptomsText) ? Loc.GetString("disease-report-symptoms-none") : symptomsText)}
-
-        {Loc.GetString("disease-report-bodyes-header")}
-        {bodyText}
-
-        [small]{Loc.GetString("disease-report-footer")}[/small]
-        ";
+        var content = Loc.GetString("disease-report-full",
+            ("strainId", data.StrainId),
+            ("threshold", data.MaxThreshold.ToString("0.0")),
+            ("infectivity", (data.Infectivity * 100).ToString("0")),
+            ("damageWhenDead", data.DamageWhenDead.ToString("0.0")),
+            ("mutationPoints", data.MutationPoints.ToString("0")),
+            ("regenThreshold", data.RegenThreshold.ToString("0.0")),
+            ("regenMutation", data.RegenMutationPoints.ToString("0.0")),
+            ("multiPriceDeleteSymptom", data.MultiPriceDeleteSymptom.ToString("0.0")),
+            ("defaultMedicineResistance", data.DefaultMedicineResistance.ToString("0.00")),
+            ("medicine", medicineText),
+            ("symptoms", symptomsText),
+            ("bodies", bodyText));
 
         _paperSystem.SetContent((paper, paperComp), content);
     }

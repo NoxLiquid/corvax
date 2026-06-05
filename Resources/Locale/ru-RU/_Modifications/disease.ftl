@@ -42,34 +42,39 @@ entity-effect-guidebook-damage-disease =
 ##   Вирусный отчёт
 ## -----------------------
 
-disease-report-no-disease = Вирусных данных не найдено. Образец чист.
+disease-report-no-disease = Заболеваний не найдено. Образец чист.
 
-disease-report-title = АНАЛИЗ ВИРУСНОГО ОБРАЗЦА
+disease-report-full =
+    [center][b]АНАЛИЗ ОБРАЗЦА[/b][/center]
+    {""}
+    Идентификатор штамма: {$strainId}
+    {""}
+    Состояние вируса (живучесть): {$threshold}
+    Заразность: {$infectivity}%
+    {""}
+    Показатель уязвимости, если организм носителя мёртв: {$damageWhenDead}
+    Очки мутации: {$mutationPoints}
+    Регенерация вируса: {$regenThreshold}
+    Скорость мутации: {$regenMutation}
+    Сложность удаления симптома: {$multiPriceDeleteSymptom}
+    {""}
+    Базовое сопротивление медикаментам: {$defaultMedicineResistance}
+    {""}
+    Устойчивость к препаратам:
+    {$medicine}
+    {""}
+    Активные симптомы:
+    {$symptoms}
+    {""}
+    Допустимые к заражению организмы:
+    {$bodies}
+    {""}
+    [small]Отчёт сгенерирован вирусным диагностическим модулем.[/small]
 
-disease-report-strain = Идентификатор штамма: {$id}
-disease-report-threshold = Состояние вируса (живучесть): {$value}
-disease-report-infectivity = Заразность: {$value}%
-
-disease-report-damage-when-dead = Показатель уязвимости, если организм носителя мёртв: {$value}
-disease-report-mutation-points = Очки мутации: {$value}
-disease-report-regen-threshold = Регенерация вируса: {$value}
-disease-report-regen-mutation = Скорость мутации: {$value}
-disease-report-milty-price-delete-symptom = Сложность удаления симптома {$value}
-
-disease-report-default-medicine-resistance = Базовое сопротивление медикаментам: {$value}
-
-disease-report-medicine-header = Устойчивость к препаратам:
 disease-report-medicine-entry = - {$name}: {$value}
-
 disease-report-medicine-none = Не обнаружена
-
-disease-report-symptoms-header = Активные симптомы:
 disease-report-symptoms-none = Не выявлены
-
-disease-report-bodyes-header = Допустимые к заражению организмы:
 disease-report-body-any = Не выявлены
-
-disease-report-footer = Отчёт сгенерирован вирусным диагностическим модулем.
 
 ## UI
 
