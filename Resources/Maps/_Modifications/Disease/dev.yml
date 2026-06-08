@@ -10144,7 +10144,7 @@ entities:
     - type: Transform
       pos: 61.704636,45.56411
       parent: 1
-- proto: DiseaseDiagnoserNox
+- proto: DiseaseDiagnoser
   entities:
   - uid: 3176
     components:

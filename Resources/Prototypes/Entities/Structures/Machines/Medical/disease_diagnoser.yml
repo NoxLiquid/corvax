@@ -1,6 +1,6 @@
 # _Modification-Disease-Start
 - type: entity
-  id: DiseaseDiagnoserNox
+  id: DiseaseDiagnoser
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]
   name: Disease Diagnoser Delta Extreme
   description: A machine that analyzes disease samples.

@@ -28,7 +28,7 @@
   - type: Sprite
     state: medical
   - type: MachineBoard
-    prototype: DiseaseDiagnoserNox
+    prototype: DiseaseDiagnoser
     stackRequirements:
       Cable: 5
     tagRequirements:

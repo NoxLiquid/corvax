@@ -14,7 +14,7 @@
 </Box>
 
 <Box>
-<GuideEntityEmbed Entity="DiseaseDiagnoserNox"/>
+<GuideEntityEmbed Entity="DiseaseDiagnoser"/>
 <GuideEntityEmbed Entity="DiseaseDataServer"/>
 <GuideEntityEmbed Entity="DiseaseSolutionAnalyzer"/>
 </Box>
