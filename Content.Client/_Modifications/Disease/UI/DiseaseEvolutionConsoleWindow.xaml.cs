@@ -76,11 +76,18 @@ public sealed partial class DiseaseEvolutionConsoleWindow : DefaultWindow
         if (state.HasDisease == false)
         {
             DiseaseDataMissing.Visible = true;
+            WhitelistDiseaseDataMissing.Visible = true;
 
             EvolutionServerMissing.Visible = false;
+            EvolutionAnalyzerMissing.Visible = false;
             EvolutionServerFar.Visible = false;
+            EvolutionAnalyzerFar.Visible = false;
             EvolutionContents.Visible = false;
 
+            WhitelistServerMissing.Visible = false;
+            WhitelistAnalyzerMissing.Visible = false;
+            WhitelistServerFar.Visible = false;
+            WhitelistAnalyzerFar.Visible = false;
             WhitelistContents.Visible = false;
 
             BuyBodyButton.Visible = false;
@@ -92,44 +99,30 @@ public sealed partial class DiseaseEvolutionConsoleWindow : DefaultWindow
         else
         {
             DiseaseDataMissing.Visible = false;
+            WhitelistDiseaseDataMissing.Visible = false;
         }
 
-        if (!state.DataServerConnected || !state.SolutionAnalyzerConnected)
-        {
-            EvolutionServerMissing.Visible = true;
-            EvolutionServerFar.Visible = false;
-            EvolutionContents.Visible = false;
+        var serverMissing = !state.DataServerConnected;
+        var analyzerMissing = !state.SolutionAnalyzerConnected;
+        var serverFar = state.DataServerConnected && !state.DataServerInRange;
+        var analyzerFar = state.SolutionAnalyzerConnected && !state.SolutionAnalyzerInRange;
+        var hasError = serverMissing || analyzerMissing || serverFar || analyzerFar;
 
-            WhitelistContents.Visible = false;
+        EvolutionServerMissing.Visible = serverMissing;
+        EvolutionAnalyzerMissing.Visible = analyzerMissing;
+        EvolutionServerFar.Visible = serverFar;
+        EvolutionAnalyzerFar.Visible = analyzerFar;
+        EvolutionContents.Visible = !hasError;
 
-            BuyBodyButton.Visible = false;
-            BuySymptomButton.Visible = false;
-            AvailableSymptomsList.Visible = false;
-        }
-        else if (!state.DataServerInRange || !state.SolutionAnalyzerInRange)
-        {
-            EvolutionServerMissing.Visible = false;
-            EvolutionServerFar.Visible = true;
-            EvolutionContents.Visible = false;
+        WhitelistServerMissing.Visible = serverMissing;
+        WhitelistAnalyzerMissing.Visible = analyzerMissing;
+        WhitelistServerFar.Visible = serverFar;
+        WhitelistAnalyzerFar.Visible = analyzerFar;
+        WhitelistContents.Visible = !hasError;
 
-            WhitelistContents.Visible = false;
-
-            BuyBodyButton.Visible = false;
-            BuySymptomButton.Visible = false;
-            AvailableSymptomsList.Visible = false;
-        }
-        else
-        {
-            EvolutionServerMissing.Visible = false;
-            EvolutionServerFar.Visible = false;
-            EvolutionContents.Visible = true;
-
-            WhitelistContents.Visible = true;
-
-            BuyBodyButton.Visible = true;
-            BuySymptomButton.Visible = true;
-            AvailableSymptomsList.Visible = true;
-        }
+        BuyBodyButton.Visible = !hasError;
+        BuySymptomButton.Visible = !hasError;
+        AvailableSymptomsList.Visible = !hasError;
 
         var diseaseSystem = _entityManager.System<DiseaseSystem>();
 

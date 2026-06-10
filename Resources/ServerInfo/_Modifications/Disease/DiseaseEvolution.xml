@@ -40,7 +40,7 @@
 
 <Box>
 <GuideEntityEmbed Entity="PetriDash"/>
-<GuideEntityEmbed Entity="DiseaseDiagnoserNox"/>
+<GuideEntityEmbed Entity="DiseaseDiagnoser"/>
 <GuideEntityEmbed Entity="DiseaseDataServer"/>
 </Box>
 

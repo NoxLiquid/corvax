@@ -94,6 +94,10 @@
     sprite: Clothing/Head/Hoods/Bio/virology.rsi
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.8
+  # _Modification-Disease-Start
+  - type: DiseaseResistance
+    coef: 0.2
+  # _Modification-Disease-End
 
 - type: entity
   parent: ClothingHeadBase

@@ -43,7 +43,7 @@
 ### Диагност заболеваний
 
 <Box>
-<GuideEntityEmbed Entity="DiseaseDiagnoserNox"/>
+<GuideEntityEmbed Entity="DiseaseDiagnoser"/>
 </Box>
 
 Стационарная машина для работы с образцами заболеваний. Имеет два слота:

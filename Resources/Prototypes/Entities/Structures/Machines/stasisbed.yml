@@ -66,3 +66,7 @@
     guides:
     - MedicalDoctor
   - type: PowerSwitch
+  # _Modification-Disease-Start
+  - type: DiseaseHealingBed
+    regenerationType: Stasis
+  # _Modification-Disease-End

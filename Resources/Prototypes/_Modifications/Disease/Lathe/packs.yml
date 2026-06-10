@@ -4,6 +4,6 @@
   recipes:
   - ComputerDiagnoserConsoleCircuitboardRecipe
   - ComputerDiagnoserDataServerCircuitboardRecipe
-  - DiagnoserMachineCircuitboardNoxRecipe
+  - DiagnoserMachineCircuitboardRecipe
   - ComputerDiseaseEvolutionConsoleCircuitboardRecipe
   - DiseaseSolutionAnalyzerMachineCircuitboardRecipe

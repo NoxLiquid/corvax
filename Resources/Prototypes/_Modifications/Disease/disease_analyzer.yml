@@ -27,3 +27,6 @@
   - type: DiseaseAnalyzer
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: GuideHelp
+    guides:
+    - DiseaseEquipment
