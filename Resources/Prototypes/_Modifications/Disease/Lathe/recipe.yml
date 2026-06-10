@@ -15,8 +15,8 @@
 
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
-  id: DiagnoserMachineCircuitboardNoxRecipe
-  result: DiagnoserMachineCircuitboardNox
+  id: DiagnoserMachineCircuitboardRecipe
+  result: DiagnoserMachineCircuitboard
 
 - type: latheRecipe
   parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]

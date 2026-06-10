@@ -36,7 +36,7 @@
           Successfully: {state: "successfully_unlit", shader: unshaded}
           GenerateDisease: {state: "unlit", shader: unshaded}
   - type: Machine
-    board: DiagnoserMachineCircuitboardNox
+    board: DiagnoserMachineCircuitboard
   - type: DeviceNetwork
     deviceNetId: Wired
     receiveFrequencyId: BasicDevice
