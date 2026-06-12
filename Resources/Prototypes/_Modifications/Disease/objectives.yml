@@ -1,3 +1,7 @@
+- type: objectiveIssuer
+  id: SentientDisease
+  name: objective-issuer-sentient-disease
+
 - type: entity
   parent: BaseObjective
   id: InfectObjective
@@ -5,7 +9,7 @@
   - type: Objective
     difficulty: 0.5
     unique: true
-    issuer: objective-issuer-sentient-disease
+    issuer: SentientDisease
     icon:
       sprite: _Modifications/Disease/disease.rsi
       state: icon
